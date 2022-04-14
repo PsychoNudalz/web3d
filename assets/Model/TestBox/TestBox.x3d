@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+    <Scene DEF='scene'>
+        <Transform DEF='Cube_1'>
+            <Shape>
+                <Appearance DEF='MAT_Cube'>
+                    <Material diffuseColor='0.5 0.5 0.5' shininess='0.025' specularColor='0.025 0.025 0.025'/>
+                    <ImageTexture url='"CubeSurface_Color.png"'/>
+                </Appearance>
+                <IndexedFaceSet DEF='FACESET_Cube_1' ccw='false' creaseAngle='0.698132' solid='false' texCoordIndex='0 1 4 2 -1 3 5 9 7 -1 7 9 15 12 -1 11 14 1 0 -1 1 13 8 4 -1 10 0 2 6 -1' coordIndex='0 1 3 2 -1 2 3 5 4 -1 4 5 7 6 -1 6 7 1 0 -1 1 7 5 3 -1 6 0 2 4 -1'>
+                    <Coordinate point='-100 -100 -100 -100 100 -100 -100 -100 100 -100 100 100 100 -100 100 100 100 100 100 -100 -100 100 100 -100'/>
+                    <TextureCoordinate point='0.554222 0.682098 0.280446 0.682098 0.554222 0.993329 0.629133 0.330839 0.280446 0.993329 0.629133 0.019608 0.827997 0.993329 0.317902 0.330839 0.006671 0.993329 0.317902 0.019608 0.827997 0.682098 0.554222 0.370867 0.006671 0.330839 0.006671 0.682098 0.280446 0.370867 0.006671 0.019608'/>
+                </IndexedFaceSet>
+            </Shape>
+        </Transform>
+        <TimeSensor DEF='Timer' cycleInterval='3' loop='true'/>
+    </Scene>
+</X3D>

@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.1",
+    "chromelogger": "^1.1.1"
+  }
+}
