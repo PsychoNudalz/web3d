@@ -1,6 +1,6 @@
 function LoadNavbar(){
     var htmlString ="  <div class=\"container-fluid\">\n" +
-        "        <a class=\"navbar-brand\" href=\"#\"><img src=\"img/icon.png\"></a>\n" +
+        // "        <a class=\"navbar-brand\" href=\"#\"><img src=\"img/icon.png\"></a>\n" +
         "        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\"\n" +
         "                data-target=\"#navbarResponsive\">\n" +
         "            <span class=\"navbar-toggler-icon\"> </span>\n" +

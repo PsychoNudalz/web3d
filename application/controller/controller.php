@@ -1,7 +1,8 @@
 <?php
 // Create the controller class for the MVC design pattern
 
-class Controller {
+class Controller
+{
 
     // Declare public variables for the controller class
     public $load;
@@ -17,6 +18,7 @@ class Controller {
         // determine what page you are on
         $this->$pageURI();
     }
+
     // home page function
     function home()
     {
@@ -30,39 +32,64 @@ class Controller {
         $data = $this->model->dbCreateTable();
         $this->load->view('viewMessage', $data);
     }
+
     function apiResetTable()
     {
         // echo "Create table function";
         $data = $this->model->dbResetTable();
         $this->load->view('viewMessage', $data);
     }
+
     function apiInsertData()
     {
         $data = $this->model->dbInsertData();
         $this->load->view('viewMessage', $data);
     }
+
+    function apiGetData_Model()
+    {
+        $data = $this->model->dbGetData_ModelAll();
+        $this->load->view('viewMessage', $data);
+    }
+
+    function apiGetData_ModelTest()
+    {
+        
+        $data = $this->model->dbGetData_ModelAll_Test();
+        $this->load->view('viewMessapiGetData_ModelTestage', $data);
+    }
+
+    function apiGetData_Mesh($MeshName)
+    {
+        $data = $this->model->dbGetData_Model($MeshName);
+        $this->load->view('viewMessage', $data);
+    }
+
+    function apiGetData_Test()
+    {
+        $this->apiGetData_Mesh("TestBox");
+    }
+
     function apiGetData()
     {
         $data = $this->model->dbGetData();
         $this->load->view('view3DAppData', $data);
     }
-    
-    function apiGetFlickrService(){
-        $this->load->view("viewFlickrService");
-    }
-    
-    function apiLoadImage(){
+
+
+    function apiLoadImage()
+    {
         // Get the brand data from the (this) Model using the dbGetBrand() meyhod in this Model class	
         ChromePhp::warn('controller.php: [apiLoadImage] Get the Brand data');
-        $data = $this->model->dbGetBrand();
+//        $data = $this->model->dbGetBrand();
         // Note, the viewDrinks.php view being loaded here calls a new model
         // called modelDrinkDetails.php, which is not part of the Model class
         // It is a separate model illustrating that you can have many models
-        ChromePhp::log($data);
-        $this->load->view('viewDrinks', $data);
+
+
+        $this->load->view('viewX3D');
     }
-    
-    
+
 
     function dbCreateTable()
     {
@@ -80,4 +107,5 @@ class Controller {
     }
 
 }
+
 ?>    

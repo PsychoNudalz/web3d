@@ -32,7 +32,6 @@
 
 <nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">
 </nav>
-
 <x3d id='someUniqueId' showStat='false' showLog='false' x='0px' y='0px' width='400px' height='400px'>
     <scene DEF='scene'>
         <transform DEF='Model' id="MainModel">

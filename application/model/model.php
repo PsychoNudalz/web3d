@@ -32,6 +32,12 @@ class Model
         }
     }
 
+
+    public function TestPrint(){
+        ChromePhp::log("Test Print");
+        
+    }
+
     // This is a simple fix to represent, what would in reality be, a table in the database containing the brand names. 
     // The database schema would then contain a foreign key for each drink entry linking back to the brand name
     // This structure allows us to read the list of brand names to populate a menu in a view
@@ -43,7 +49,7 @@ class Model
 
     public function dbCreateTable_ModelTable()
     {
-       return "CREATE TABLE Model_Mesh (MeshName TEXT PRIMARY KEY, PathName TEXT );";
+        return "CREATE TABLE Model_Mesh (MeshName TEXT PRIMARY KEY, PathName TEXT );";
     }
 
     public function dbCreateTable_TextureTable()
@@ -54,25 +60,57 @@ class Model
 
     public function dbCreateTable()
     {
-        $returnText ="";
+        $returnText = "";
         try {
-            $this->dbhandle->exec($this->dbCreateTable_ModelTable().$this->dbCreateTable_TextureTable());
-            ;
+            $this->dbhandle->exec($this->dbCreateTable_ModelTable() . $this->dbCreateTable_TextureTable());;
             return "TABLE CREATION CLEAR";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         $this->dbhandle = NULL;
     }
-    
-    public function dbResetTable(){
-        $returnText ="";
+
+    public function dbResetTable()
+    {
+        $returnText = "";
         try {
             $this->dbhandle->exec("DROP TABLE IF EXISTS Model_Mesh;DROP TABLE IF EXISTS Model_Texture ;");
             $this->dbCreateTable();
             return "TABLE RESET CLEAR";
 
-        
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        $this->dbhandle = NULL;
+    }
+
+    public function dbInsertData_Mesh()
+    {
+        $insertCommand = "INSERT INTO Model_Mesh(MeshName,PathName)VALUES (";
+        $insertCommand_end = ");";
+        try {
+            $this->dbhandle->exec($insertCommand . "'TestBox','assets/Model/TestBox/TestBox.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','assets/Model/CokeCan/Can.x3d'" . $insertCommand_end);
+            return "X3D model data inserted successfully inside test1.db";
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        $this->dbhandle = NULL;
+    }
+
+    public function dbInsertData_Texture()
+    {
+//        return "CREATE TABLE Model_Texture (MeshName TEXT NOT NULL,Brand TEXT NOT NULL  , PathName TEXT ,DiffuseColor TEXT, Shininess TEXT, SpecularColor TEXT,CONSTRAINT COMP_NAME PRIMARY KEY (MeshName, Brand)); ";
+
+        $insertCommand = "INSERT INTO Model_Texture(MeshName,Brand,PathName,DiffuseColor,Shininess,SpecularColor)VALUES (";
+        $insertCommand_end = ");";
+        try {
+            $this->dbhandle->exec($insertCommand . "'TestBox','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','Coke','assets/Model/TestBox/Can.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
@@ -82,13 +120,8 @@ class Model
     public function dbInsertData()
     {
         try {
-            $this->dbhandle->exec(
-                "INSERT INTO Model_3D (Id, x3dModelTitle, x3dCreationMethod, modelTitle, modelSubtitle, modelDescription) 
-				VALUES (1, 'X3D Coke Model', 'string_2', 'string_3','string_4','string_5'); " .
-                "INSERT INTO Model_3D (Id, x3dModelTitle, x3dCreationMethod, modelTitle, modelSubtitle, modelDescription) 
-				VALUES (2, 'X3D Sprite Model', 'string_2', 'string_3','string_4','string_5'); " .
-                "INSERT INTO Model_3D (Id, x3dModelTitle, x3dCreationMethod, modelTitle, modelSubtitle, modelDescription) 
-				VALUES (3, 'X3D Pepper Model', 'string_2', 'string_3','string_4','string_5'); ");
+            $this->dbInsertData_Mesh();
+            $this->dbInsertData_Texture();
             return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
@@ -99,28 +132,155 @@ class Model
     public function dbGetData()
     {
         try {
+
+//            // Prepare a statement to get all records from the Model_3D table
+//            $sql = 'SELECT * FROM Model_3D';
+//            // Use PDO query() to query the database with the prepared SQL statement
+//            $stmt = $this->dbhandle->query($sql);
+//            // Set up an array to return the results to the view
+//            $result = null;
+//            // Set up a variable to index each row of the array
+//            $i = -0;
+//            // Use PDO fetch() to retrieve the results from the database using a while loop
+//            // Use a while loop to loop through the rows	
+//            while ($data = $stmt->fetch()) {
+//                // Don't worry about this, it's just a simple test to check we can output a value from the database in a while loop
+//                // echo '</br>' . $data['x3dModelTitle'];
+//                // Write the database conetnts to the results array for sending back to the view
+//                $result[$i]['x3dModelTitle'] = $data['x3dModelTitle'];
+//                $result[$i]['x3dCreationMethod'] = $data['x3dCreationMethod'];
+//                $result[$i]['modelTitle'] = $data['modelTitle'];
+//                $result[$i]['modelSubtitle'] = $data['modelSubtitle'];
+//                $result[$i]['modelDescription'] = $data['modelDescription'];
+//                //increment the row index
+//                $i++;
+//            }
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        // Close the database connection
+        $this->dbhandle = NULL;
+        // Send the response back to the view
+        return;
+    }
+
+    public function UnpackX3DToJSON($filPath)
+    {
+        $xml = simplexml_load_file($filPath);
+//        ChromePhp::log($xml->IndexedFaceSet['texCoordIndex']);
+
+        if ($xml == null) {
+            return "failed to load X3D from Path";
+        }
+        $result = null;
+        if ($xml->X3D == null) {
+            return "XML null";
+
+        }
+        $result["texCoordIndex"] = $xml->Scene->Transform->Shape->IndexedFaceSet['texCoordIndex'];
+        $result["coordIndex"] = $xml->Scene->Transform->Shape->IndexedFaceSet['coordIndex'];
+        $result["coordinate"] = $xml->Scene->Transform->Shape->IndexedFaceSet->Coordinate['point'];
+        $result["textureCoordinate"] = $xml->Scene->Transform->Shape->IndexedFaceSet->TextureCoordinate['point'];
+        return $result;
+
+    }
+
+    public function UnpackTextureToJSON($data)
+    {
+        $result = null;
+        $result["name"] = $data["MeshName"] . "_" . $data["Brand"];
+        $result["diffuseColor"] = $data["DiffuseColor"];
+        $result["shininess"] = $data["Shininess"];
+        $result["specularColor"] = $data["SpecularColor"];
+        $result["textureURL"] = $data["PathName"];
+        return $result;
+
+    }
+
+    public function dbGetData_ModelAll()
+    {
+        ChromePhp::log("Calling dbGetData_ModelNew");
+
+        $meshName = $_GET['meshName'];
+        $brandName = $_GET['brandName'];
+        $data['Mesh'] = $this->dbGetData_Model($meshName);
+        $data['Texture'] = $this->dbGetData_Texture($meshName, $brandName);
+
+        return $data;
+
+    }
+
+    public function dbGetData_ModelAll_Test()
+    {
+        ChromePhp::log("Calling dbGetData_ModelAll_Test");
+
+        $data = null;
+        $data = $this->dbGetData_Model("Can");
+        //$data['Texture'] = $this->dbGetData_Texture("Can", "Coke");
+
+        return $data;
+
+    }
+
+
+
+    public function dbGetData_Model($meshName)
+    {
+        ChromePhp::log("Getting Model: ".$meshName);
+
+        try {
             // Prepare a statement to get all records from the Model_3D table
-            $sql = 'SELECT * FROM Model_3D';
+            $sql = 'SELECT * FROM Model_Mesh WHERE MeshName = "' . $meshName . '";';
+//            $sql = 'SELECT * FROM Model_Mesh WHERE MeshName = "can";';
+//            $sql = 'SELECT * FROM Model_Mesh ;';
             // Use PDO query() to query the database with the prepared SQL statement
             $stmt = $this->dbhandle->query($sql);
             // Set up an array to return the results to the view
             $result = null;
             // Set up a variable to index each row of the array
-            $i = -0;
             // Use PDO fetch() to retrieve the results from the database using a while loop
             // Use a while loop to loop through the rows	
             while ($data = $stmt->fetch()) {
-                // Don't worry about this, it's just a simple test to check we can output a value from the database in a while loop
-                // echo '</br>' . $data['x3dModelTitle'];
-                // Write the database conetnts to the results array for sending back to the view
-                $result[$i]['x3dModelTitle'] = $data['x3dModelTitle'];
-                $result[$i]['x3dCreationMethod'] = $data['x3dCreationMethod'];
-                $result[$i]['modelTitle'] = $data['modelTitle'];
-                $result[$i]['modelSubtitle'] = $data['modelSubtitle'];
-                $result[$i]['modelDescription'] = $data['modelDescription'];
+                ChromePhp::log('Unpacking' . $data['PathName']);
+                $unPackedJSON = $this->UnpackX3DToJSON($data['PathName']);
+                ChromePhp::log($unPackedJSON);
+
                 //increment the row index
-                $i++;
             }
+            $result = $unPackedJSON;
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        // Close the database connection
+        $this->dbhandle = NULL;
+        // Send the response back to the view
+        ChromePhp::log($result);
+
+        return $result;
+    }
+
+    public function dbGetData_Texture($meshName, $brandName)
+    {
+        try {
+            // Prepare a statement to get all records from the Model_3D table
+            $sql = 'SELECT * FROM Model_Texture WHERE MeshName = "' . $meshName . '"AND Brand = "' . $brandName . '";';
+//            $sql = 'SELECT * FROM Model_Mesh WHERE MeshName = "can";';
+//            $sql = 'SELECT * FROM Model_Mesh ;';
+            // Use PDO query() to query the database with the prepared SQL statement
+            $stmt = $this->dbhandle->query($sql);
+            // Set up an array to return the results to the view
+            $result = null;
+            // Set up a variable to index each row of the array
+            // Use PDO fetch() to retrieve the results from the database using a while loop
+            // Use a while loop to loop through the rows	
+            while ($data = $stmt->fetch()) {
+                ChromePhp::log('Unpacking' . $data);
+                $unPackedJSON = $this->UnpackTextureToJSON($data);
+                ChromePhp::log($unPackedJSON);
+
+                //increment the row index
+            }
+            $result = $unPackedJSON;
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
@@ -129,6 +289,7 @@ class Model
         // Send the response back to the view
         return $result;
     }
+
 
     //Method to simulate the model data
     public function model3D_info()
