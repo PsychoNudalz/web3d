@@ -45,6 +45,7 @@
     <select id="selectTexture" onclick="LoadTexture()" ">
     <option value="Coke">Coke</option>
     <option value="Sprite">Sprite</option>
+    <option value="Fanta">Fanta</option>
     <option value="TestBox">TestBox</option>
 
     </select>

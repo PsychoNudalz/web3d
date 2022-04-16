@@ -161,22 +161,28 @@ class Model
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Bottle','Fanta','assets/Model/Bottle/Bottle_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
         
         //Glass
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Coke','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Coke','assets/Model/Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Sprite','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Sprite','assets/Model/Glass/Glass_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Fanta','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Fanta','assets/Model/Glass/Glass_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
