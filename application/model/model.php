@@ -299,7 +299,7 @@ class Model
 
     public function dbGetData_Model($meshName)
     {
-        ChromePhp::log("Getting Model: " . $meshName);
+        ChromePhp::log("Getting Mesh: " . $meshName);
 
         try {
             // Prepare a statement to get all records from the Model_3D table

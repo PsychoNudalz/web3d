@@ -79,7 +79,7 @@ class getMesh
 
     public function dbGetData_Mesh($meshName)
     {
-        ChromePhp::log("Getting Model: " . $meshName);
+        ChromePhp::log("Model.php: Getting Model: " . $meshName);
 
         try {
             // Prepare a statement to get all records from the Model_3D table

@@ -70,6 +70,8 @@ class getTexture
 
     public function dbGetData_Texture($meshName, $brandName)
     {
+        ChromePhp::log("Texture.php: Getting Model: " . $meshName);
+
         try {
             // Prepare a statement to get all records from the Model_3D table
             $sql = 'SELECT * FROM Model_Texture WHERE MeshName = "' . $meshName . '"AND Brand = "' . $brandName . '";';
