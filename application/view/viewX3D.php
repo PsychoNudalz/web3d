@@ -80,6 +80,7 @@
                 <option value="Bottle">Bottle</option>
                 <option value="Glass">Glass</option>
                 <option value="TestBox">TestBox</option>
+                <option value="TestScene">TestScene</option>
 
             </select>
             <select id="selectTexture">
@@ -91,35 +92,34 @@
             </select>
         </form>
     </div>
-</div>
-
-<div class=" row container-fluid padding ">
     <div class="col-sm-12 x3dScreen">
         <x3d id='x3dScreen_x3d' showStat='false' showLog='false'>
             <scene DEF='scene'>
                 <transform DEF='Model' id="MainModel">
-                    <shape>
+                    <inline id="X3D_inline" url="">
                         <appearance id="X3D_appearance" DEF='MAT_Cube'>
                             <material id="X3D_material" diffuseColor='0.5 0.5 0.5' shininess='0.025'
                                       specularColor='0.025 0.025 0.025'></material>
                             <imageTexture id="X3D_imageTexture" url='"CubeSurface_Color.png"'></imageTexture>
                         </appearance>
-                        <indexedFaceSet id="X3D_indexedFaceSet" DEF='FACESET_Cube_1' ccw='false'
-                                        creaseAngle='0.698132'
-                                        solid='false'
-                                        texCoordIndex='0 1 4 2 -1 3 5 9 7 -1 7 9 15 12 -1 11 14 1 0 -1 1 13 8 4 -1 10 0 2 6 -1'
-                                        coordIndex='0 1 3 2 -1 2 3 5 4 -1 4 5 7 6 -1 6 7 1 0 -1 1 7 5 3 -1 6 0 2 4 -1'>
-                            <coordinate id="X3D_coordinate"
-                                        point='-100 -100 -100 -100 100 -100 -100 -100 100 -100 100 100 100 -100 100 100 100 100 100 -100 -100 100 100 -100'></coordinate>
-                            <textureCoordinate id="X3D_textureCoordinate"
-                                               point='0.554222 0.682098 0.280446 0.682098 0.554222 0.993329 0.629133 0.330839 0.280446 0.993329 0.629133 0.019608 0.827997 0.993329 0.317902 0.330839 0.006671 0.993329 0.317902 0.019608 0.827997 0.682098 0.554222 0.370867 0.006671 0.330839 0.006671 0.682098 0.280446 0.370867 0.006671 0.019608'></textureCoordinate>
-                        </indexedFaceSet>
-                    </shape>
+                        
+                        
+<!--                        <indexedFaceSet id="X3D_indexedFaceSet" DEF='FACESET_Cube_1' ccw='false'-->
+<!--                                        creaseAngle='0.698132'-->
+<!--                                        solid='false'-->
+<!--                                        texCoordIndex='0 1 4 2 -1 3 5 9 7 -1 7 9 15 12 -1 11 14 1 0 -1 1 13 8 4 -1 10 0 2 6 -1'-->
+<!--                                        coordIndex='0 1 3 2 -1 2 3 5 4 -1 4 5 7 6 -1 6 7 1 0 -1 1 7 5 3 -1 6 0 2 4 -1'>-->
+<!--                            <coordinate id="X3D_coordinate"-->
+<!--                                        point='-100 -100 -100 -100 100 -100 -100 -100 100 -100 100 100 100 -100 100 100 100 100 100 -100 -100 100 100 -100'></coordinate>-->
+<!--                            <textureCoordinate id="X3D_textureCoordinate"-->
+<!--                                               point='0.554222 0.682098 0.280446 0.682098 0.554222 0.993329 0.629133 0.330839 0.280446 0.993329 0.629133 0.019608 0.827997 0.993329 0.317902 0.330839 0.006671 0.993329 0.317902 0.019608 0.827997 0.682098 0.554222 0.370867 0.006671 0.330839 0.006671 0.682098 0.280446 0.370867 0.006671 0.019608'></textureCoordinate>-->
+<!--                        </indexedFaceSet>-->
+                    </inline>
                 </transform>
                 <transform id="x3d_Camera" DEF='Camera' rotation='0 0 0 1'
                            translation='0 0 0'>
-                    <viewpoint DEF='View_Camera' description='Camera' orientation='0 -1 0 1.5708' position='0 0 0'
-                               fieldOfView='0.927295'></viewpoint>
+                    <viewpoint DEF='View_Camera' id="x3d_Camera_VP_Default" description='Camera' orientation='0, 1, 0, 0' position='0, 500, 2000'
+                               fieldOfView='0.8'></viewpoint>
 
                 </transform>
 
@@ -130,23 +130,15 @@
             </scene>
         </x3d>
     </div>
-</div>
-
-</div>
-<div class=" row container-fluid padding ">
-    <div class="col-sm-12">
-        <?php
-        include("application/scripts/x3dController.php");
-        ?>
+    <div class=" row container-fluid padding ">
+        <div class="col-sm-12">
+            <?php
+            include("application/scripts/x3dController.php");
+            ?>
+        </div>
     </div>
 </div>
-</div>
 
-
-<div>
-    <h1>Display stuff</h1>
-
-</div>
 </body>
 
 <!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->

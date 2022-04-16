@@ -11,10 +11,10 @@
             <div class="btn-group ">
                 <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetViewPoint('Front')">Front</a>
                 <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetViewPoint('Back')">Back</a>
-                <a href="#" class="btn btn-orange btn-responsive camera-btn">Left</a>
-                <a href="#" class="btn btn-orange btn-responsive camera-btn">Right</a>
+                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetViewPoint('Left')">Left</a>
+                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetViewPoint('Right')">Right</a>
                 <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetViewPoint('Top')">Top</a>
-                <a href="#" class="btn btn-orange btn-responsive camera-font" onclick="ResetViewPoint()">Off</a>
+                <a href="#" class="btn btn-orange btn-responsive camera-font" onclick="SetViewPoint('Default')">Off</a>
             </div>
         </div>
 

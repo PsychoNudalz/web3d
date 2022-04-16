@@ -13,9 +13,16 @@ class CameraTransform {
     }
 }
 
-const FrontTransform: CameraTransform = new CameraTransform([0, 500, 1500], [0, 1, 0, 0]);
-const TopTransform: CameraTransform = new CameraTransform([0, 1500  , 500], [ -1, 0, 0, 1]);
-var previousViewpoint:string="";
+const yHeight:number = 500;
+const offsetDist:number = 2000;
+
+const FrontTransform: CameraTransform = new CameraTransform([-offsetDist, yHeight, 0], [0, -1.5708, 0, 1.5708]);
+const BackTransform: CameraTransform = new CameraTransform([offsetDist, yHeight, ], [ 0, 1.5708, 0,  1.5708]);
+const LeftTransform: CameraTransform = new CameraTransform([0, yHeight  , offsetDist],[0, 0, 0, 1.5708]);
+const RightTransform: CameraTransform = new CameraTransform([0, yHeight  , -offsetDist], [ 0, 1.5708, 0,3.14159]);
+const TopTransform: CameraTransform = new CameraTransform([0, 2000  , 0], [ -1.5708, 0, 0, 1.5708]);
+var previousViewpoint:string="Default";
+var previousPreviousViewpoint:string="";
 //
 // function X3dCamera_Test() {
 //     // var Quaternion = require('./quaternion/quaternion');
@@ -33,14 +40,17 @@ function InitialiseViewpoints() {
     if (container != null) {
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Front", FrontTransform);
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Top", TopTransform);
+        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Back", BackTransform);
+        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Left", LeftTransform);
+        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Right", RightTransform);
 
     }
 
 }
 
 function CameraTransformToViewpoint(idName: string, cameraTransform: CameraTransform) {
-    return "<viewpoint id='" + idName + "' DEF='View_Camera' description='Camera' orientation='" + cameraTransform.rotation + "' position='" + cameraTransform.position + "' fieldOfView='0.927295' nearclippingplane=\"-1\" farclippingplane=\"-1\"\n" +
-        "                               centerofrotation=\"0,0,0\" znear=\"-1\" zfar=\"-1\"></viewpoint>\n";
+    return "<viewpoint id='" + idName + "' DEF='View_Camera' description='Camera' orientation='" + cameraTransform.rotation + "' position='" + cameraTransform.position + "' fieldOfView='0.8' nearclippingplane=\"-1\" farclippingplane=\"-1\"\n" +
+        "                               centerofrotation=\"0 0 0\" znear=\"-1\" zfar=\"-1\"></viewpoint>\n";
 }
 
 function MoveCamera_Preset(preset: string) {
@@ -55,17 +65,17 @@ function MoveCamera(transform: CameraTransform) {
 
 function SetViewPoint(preset: string) {
 
-    var previous = document.getElementById('x3d_Camera_VP_'+previousViewpoint);
-    if(previous!=null){
-        previous.setAttribute('set_bind','false');
-    }
-    previousViewpoint = preset;
-        // @ts-ignore
+
+    // ResetViewPoint();
+    // @ts-ignore
     document.getElementById('x3d_Camera_VP_'+preset).setAttribute('set_bind','true');
+    
+    previousViewpoint = preset;
 }
 
 function ResetViewPoint(){
-    var previous = document.getElementById('x3d_Camera_VP_'+previousViewpoint);
+   previousPreviousViewpoint = previousViewpoint;
+    var previous = document.getElementById('x3d_Camera_VP_'+previousPreviousViewpoint);
     if(previous!=null){
         previous.setAttribute('set_bind','false');
     }
