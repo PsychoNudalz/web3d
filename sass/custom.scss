@@ -15,6 +15,8 @@ $primary: (#FFFFFF);
 $dark-orange: (#be4a00);
 $orange: (#FF6D13);
 $light-orange: (#ff9741);
+
+$aspect-ratio: 9/16;
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 html, body {
@@ -621,15 +623,9 @@ figure {
 }
 
 
-.MODEL_Hammer {
-  position: absolute;
-  z-index: -1;
+.x3dScreen {
   //background-image: url(../img/Export1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.4;
   width: 100%;
-  height: 100%;
 }
 
 //.fab, .far {

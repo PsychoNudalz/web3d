@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="13a074fb-ad66-4efe-803c-e87351b96d20" name="UniWeb3D">
+        <fileTransfer rootFolder="/its/home/yhaw20/public_html/web3d/assignment" accessType="SFTP" host="unix.sussex.ac.uk" port="22" sshConfigId="8596af54-ecd2-4c3e-b8df-dcf493ee6aac" sshConfig="yhaw20@unix.sussex.ac.uk:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

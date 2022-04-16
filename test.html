@@ -3,11 +3,11 @@
 <head>
     <title>Coca Cola Thingy</title>
 
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
+    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
 
     <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
 
@@ -17,28 +17,17 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="application/scripts/NavbarLoader.js"></script>
-    <script src="application/scripts/ModelLoader.js"></script>
-
-    <script src="application/scripts/x3dCameraController.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            console.log("Idont gking now")
-            InitialiseViewpoints();
-            LoadNavbar();
-
-            LoadMesh_HTML();
-
-            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
-        };</script>
-    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
-
 
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 
     <script src="application/scripts/ModelLoader.js"></script>
-    <!--    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
+
+    <script src="application/scripts/NavbarLoader.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            LoadNavbar();
+        };</script>
 
 </head>
 <body class="bg-primary">
@@ -46,7 +35,11 @@
 <nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">
 </nav>
 
-
+<script src="application/scripts/ModelLoader.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        LoadMesh_HTML();
+    };</script>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#selectMesh").click(function () {
@@ -71,22 +64,22 @@
 
 
 <div class=" row container-fluid padding ">
-    <div class=" col-sm-12">
+    <div class=" col-12">
 
         <form>
             <!--    <select id="selectMesh" onclick="LoadMesh_JQ();">-->
-            <select id="selectMesh">
-                <option value="Can" selected>Can</option>
-                <option value="Bottle">Bottle</option>
-                <option value="Glass">Glass</option>
-                <option value="TestBox">TestBox</option>
+            <select id="selectMesh"">
+            <option value="Can" selected>Can</option>
+            <option value="Bottle">Bottle</option>
+            <option value="Glass">Glass</option>
+            <option value="TestBox">TestBox</option>
 
             </select>
-            <select id="selectTexture">
-                <option value="Coke" selected>Coke</option>
-                <option value="Sprite">Sprite</option>
-                <option value="Fanta">Fanta</option>
-                <option value="TestBox">TestBox</option>
+            <select id="selectTexture" ;">
+            <option value="Coke" selected>Coke</option>
+            <option value="Sprite">Sprite</option>
+            <option value="Fanta">Fanta</option>
+            <option value="TestBox">TestBox</option>
 
             </select>
         </form>
@@ -94,8 +87,8 @@
 </div>
 
 <div class=" row container-fluid padding ">
-    <div class="col-sm-12 x3dScreen">
-        <x3d id='x3dScreen_x3d' showStat='false' showLog='false'>
+    <div class="col-12 x3dScreen">
+        <x3d class="col-12" id='x3dScreen_x3d' showStat='false' showLog='false'>
             <scene DEF='scene'>
                 <transform DEF='Model' id="MainModel">
                     <shape>
@@ -116,11 +109,10 @@
                         </indexedFaceSet>
                     </shape>
                 </transform>
-                <transform id="x3d_Camera" DEF='Camera' rotation='0 0 0 1'
-                           translation='0 0 0'>
+                <transform DEF='Camera' rotation='0.128181 -0.924042 -0.360161 0.735286'
+                           translation='-466.236 382.613 -358.493'>
                     <viewpoint DEF='View_Camera' description='Camera' orientation='0 -1 0 1.5708' position='0 0 0'
                                fieldOfView='0.927295'></viewpoint>
-
                 </transform>
 
                 <transform DEF='Light' translation='0 127.424 0'>
@@ -134,7 +126,7 @@
 
 </div>
 <div class=" row container-fluid padding ">
-    <div class="col-sm-12">
+    <div class="col-12">
         <?php
         include("application/scripts/x3dController.php");
         ?>
@@ -148,7 +140,4 @@
 
 </div>
 </body>
-
-<!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
-
 </html>
