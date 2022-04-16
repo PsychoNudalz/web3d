@@ -33,9 +33,10 @@ class Model
     }
 
 
-    public function TestPrint(){
+    public function TestPrint()
+    {
         ChromePhp::log("Test Print");
-        
+
     }
 
     // This is a simple fix to represent, what would in reality be, a table in the database containing the brand names. 
@@ -92,6 +93,8 @@ class Model
         try {
             $this->dbhandle->exec($insertCommand . "'TestBox','assets/Model/TestBox/TestBox.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'Can','assets/Model/CokeCan/Can.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Bottle','assets/Model/Bottle/Bottle.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','assets/Model/Glass/Glass.x3d'" . $insertCommand_end);
             return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
@@ -107,13 +110,78 @@ class Model
         $insertCommand_end = ");";
         try {
             $this->dbhandle->exec($insertCommand . "'TestBox','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'Can','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'Can','Coke','assets/Model/TestBox/Can.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
-            return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
+        try {
+            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','assets/Model/CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+
+            print new Exception($e->getMessage());
+        } try {
+            $this->dbhandle->exec($insertCommand . "'TestBox','Sprite','assets/Model/Bottle/Just_Bottle.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+
+            print new Exception($e->getMessage());
+        }
+        
+        //Can
+        try {
+            $this->dbhandle->exec($insertCommand . "'Can','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+
+            print new Exception($e->getMessage());
+        }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Can','Coke','assets/Model/CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Can','Sprite','assets/Model/CokeCan/Can_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        
+        //Bottle
+        try {
+            $this->dbhandle->exec($insertCommand . "'Bottle','Sprite','assets/Model/Bottle/Bottle_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Bottle','Coke','assets/Model/Bottle/Bottle_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        
+        //Glass
+        try {
+            $this->dbhandle->exec($insertCommand . "'Glass','Coke','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Glass','Sprite','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Glass','Fanta','assets/Model/Glass/Glass.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        return "X3D model data inserted successfully inside test1.db";
         $this->dbhandle = NULL;
     }
 
@@ -223,10 +291,9 @@ class Model
     }
 
 
-
     public function dbGetData_Model($meshName)
     {
-        ChromePhp::log("Getting Model: ".$meshName);
+        ChromePhp::log("Getting Model: " . $meshName);
 
         try {
             // Prepare a statement to get all records from the Model_3D table

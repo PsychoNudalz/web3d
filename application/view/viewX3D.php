@@ -35,13 +35,16 @@
 <script src="application/scripts/ModelLoader.js"></script>
 
 <form style='margin:5px; padding:10px;'>
-    <select id="selectMesh" onclick="LoadMesh()" ">
+    <select id="selectMesh" onclick="LoadMesh();LoadTexture();" ">
     <option value="Can">Can</option>
+    <option value="Bottle">Bottle</option>
+    <option value="Glass">Glass</option>
     <option value="TestBox">TestBox</option>
 
     </select>
     <select id="selectTexture" onclick="LoadTexture()" ">
     <option value="Coke">Coke</option>
+    <option value="Sprite">Sprite</option>
     <option value="TestBox">TestBox</option>
 
     </select>
@@ -66,6 +69,10 @@
                    translation='-466.236 382.613 -358.493'>
             <viewpoint DEF='View_Camera' description='Camera' orientation='0 -1 0 1.5708' position='0 0 0'
                        fieldOfView='0.927295'></viewpoint>
+        </transform>
+
+        <transform DEF='Light' translation='0 127.424 0'>
+            <pointLight DEF='LIGHT_Light' radius='1e+08'></pointLight>
         </transform>
         <timeSensor DEF='Timer' cycleInterval='3' loop='true'></timeSensor>
     </scene>

@@ -47,17 +47,40 @@ function ReadX3D(url: string) {
     return xhttp.responseXML;
 }
 
+// //
+// function LoadModelByX3D(url:string) {
+//     // var projectContainer: HTMLElement | null = document.getElementById("MainModel");
+//     var returnXML: Document = ReadX3D(url)
+//     console.log("Read clear: "+returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("DEF"));
+//     var material: X3DMaterial = new X3DMaterial(returnXML.getElementsByTagName("Appearance")[0].getAttribute("DEF"), returnXML.getElementsByTagName("Material")[0].getAttribute("diffuseColor"), returnXML.getElementsByTagName("Material")[0].getAttribute("shininess"), returnXML.getElementsByTagName("Material")[0].getAttribute("specularColor"), returnXML.getElementsByTagName("ImageTexture")[0].getAttribute("url"));
 //
-// function LoadModel_OLD() {
-//     var projectContainer: HTMLElement | null = document.getElementById("MainModel");
-//     var returnXML: Document = ReadX3D("assets/Model/TestBox/TestBox.x3d")
-//     console.log(returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("DEF"));
-//     if (projectContainer != null) {
-//         var material: X3DMaterial = new X3DMaterial(returnXML.getElementsByTagName("Appearance")[0].getAttribute("DEF"), returnXML.getElementsByTagName("Material")[0].getAttribute("diffuseColor"), returnXML.getElementsByTagName("Material")[0].getAttribute("shininess"), returnXML.getElementsByTagName("Material")[0].getAttribute("specularColor"), returnXML.getElementsByTagName("ImageTexture")[0].getAttribute("url"));
-//         projectContainer.innerHTML = modelHTML(new X3DModel(material, returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point")));
-//     }
 //
-// }
+//     // if (projectContainer != null) {
+//         // projectContainer.innerHTML = modelHTML(new X3DModel(material, returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point")));
+//     // }
+//
+// }//
+function LoadMeshByX3D(url: string) {
+    // var projectContainer: HTMLElement | null = document.getElementById("MainModel");
+    console.log("reading x3d from: " + url);
+    var returnXML: Document = ReadX3D(url);
+    if (returnXML != null) {
+
+        console.log("Read clear: " + returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("DEF"));
+        console.log(returnXML);
+        // var material: X3DMaterial = new X3DMaterial(returnXML.getElementsByTagName("Appearance")[0].getAttribute("DEF"), returnXML.getElementsByTagName("Material")[0].getAttribute("diffuseColor"), returnXML.getElementsByTagName("Material")[0].getAttribute("shininess"), returnXML.getElementsByTagName("Material")[0].getAttribute("specularColor"), returnXML.getElementsByTagName("ImageTexture")[0].getAttribute("url"));
+        return new X3DModel(returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point"));
+
+    } else {
+        return null;
+    }
+
+    // if (projectContainer != null) {
+    // projectContainer.innerHTML = modelHTML(new X3DModel(material, returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point")));
+    // }
+
+}
+
 //
 // function modelHTML(x3DModel: X3DModel) {
 //     const returnString =
@@ -94,19 +117,38 @@ function UpdateTexture(x3DMaterial: X3DMaterial) {
 
 function UpdateMesh(x3dMesh: X3DModel) {
 
-    // @ts-ignore
-    document.getElementById("X3D_indexedFaceSet").texCoordIndex = x3dMesh.texCoordIndex;
+    try {
 
-    // @ts-ignore
-    document.getElementById("X3D_indexedFaceSet").coordIndex = x3dMesh.coordIndex;
+        // @ts-ignore
+        document.getElementById("X3D_indexedFaceSet").texCoordIndex = x3dMesh.texCoordIndex;
+    } catch (error) {
 
-    // @ts-ignore
-    document.getElementById("X3D_coordinate").point = x3dMesh.coordinate;
+    }
+    try {    // @ts-ignore
 
-    // @ts-ignore
-    document.getElementById("X3D_textureCoordinate").point = x3dMesh.textureCoordinate;
+        document.getElementById("X3D_indexedFaceSet").coordIndex = x3dMesh.coordIndex;
+
+    } catch (error) {
+
+    }
+
+    try {    // @ts-ignore
+
+        document.getElementById("X3D_coordinate").point = x3dMesh.coordinate;
+
+    } catch (error) {
+
+    }
+    try {    // @ts-ignore
+
+        document.getElementById("X3D_textureCoordinate").point = x3dMesh.textureCoordinate;
+
+    } catch (error) {
+
+    }
 
 }
+
 
 function LoadMesh() {
     $(document).ready(function () {
@@ -114,20 +156,46 @@ function LoadMesh() {
             var selection = $(this).val();
             console.log('Selected Mesh model:', selection);
             //GETTING MESH
-            var brandUrlMesh = "application/model/getMesh.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
-            console.log('URL to PHP Model is:', brandUrlMesh);
-            $.getJSON(brandUrlMesh)
+            var urlMesh = "application/model/getMesh.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
+            console.log('URL to PHP Model is:', urlMesh);
+            var getJSONFail: boolean = true;
+            $.getJSON(urlMesh)
                 .done(function (json) {
                     // Debug
                     console.log('Get Mesh: ', json);
-//TODO:Fix this sht
                     UpdateMesh(new X3DModel(json.texCoordIndex[0], json.coordIndex[0], json.coordinate[0], json.textureCoordinate[0]));
+                    getJSONFail = false;
                 })
                 .fail(function (d, textStatus, error) {
-                    console.log('viewDrinks JS Handler: Server returned an Error, trap this in your PHP Server code');
+                    console.log('ModelLoader getMesh: Server returned an Error, trap this in your PHP Server code');
                     console.warn("getJSON failed, status: " + textStatus + ", error: " + error)
 
+
                 });
+            if (getJSONFail) {
+                console.warn("Trying to fetch x3d directly");
+                urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
+                $.getJSON(urlMesh)
+                    .done(function (json) {
+                        // Debug
+                        console.log('Get Mesh: ', json);
+                        //Loading x3D from path;
+                        var x3dMesh: X3DModel | null;
+                        x3dMesh = LoadMeshByX3D(json.Path);
+                        console.log(x3dMesh);
+                        if (x3dMesh != null) {
+                            UpdateMesh(x3dMesh);
+                        } else {
+                            console.error("Can not load mesh at: " + json.Path);
+                        }
+                        getJSONFail = false;
+                    })
+                    .fail(function (d, textStatus, error) {
+                        console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
+                        console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
+
+                    });
+            }
         });
 
     });
@@ -144,9 +212,9 @@ function LoadTexture() {
             console.log('Selected Brand:', selection);
 
             //GETTING TEXTURE
-            var brandUrlTexture = "application/model/getTexture.php?meshName=" + $("#selectMesh option:selected").val() + "&brandName=" + selection;
-            console.log('URL to PHP Model is:', brandUrlTexture);
-            $.getJSON(brandUrlTexture)
+            var urlTexture = "application/model/getTexture.php?meshName=" + $("#selectMesh option:selected").val() + "&brandName=" + selection;
+            console.log('URL to PHP Model is:', urlTexture);
+            $.getJSON(urlTexture)
                 .done(function (json) {
                     // Debug
 
@@ -161,7 +229,7 @@ function LoadTexture() {
                     UpdateTexture(material);
                 })
                 .fail(function (d, textStatus, error) {
-                    console.log('viewDrinks JS Handler: Server returned an Error, trap this in your PHP Server code');
+                    console.log('ModelLoader: Server returned an Error, trap this in your PHP Server code');
                     console.warn("getJSON failed, status: " + textStatus + ", error: " + error)
 
                 });

@@ -45,6 +45,11 @@ class Controller
         $data = $this->model->dbInsertData();
         $this->load->view('viewMessage', $data);
     }
+    
+    function apiResetInsertData(){
+        $this->apiResetTable();
+        $this->apiInsertData();
+    }
 
     function apiGetData_Model()
     {
