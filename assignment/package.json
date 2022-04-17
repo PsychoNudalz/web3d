@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/jquery": "^3.5.14",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.1",
+    "chromelogger": "^1.1.1",
+    "quaternion": "^1.3.0"
+  }
+}
