@@ -20,6 +20,7 @@
     <script src="application/scripts/NavbarLoader.js"></script>
     <script src="application/scripts/ModelLoader.js"></script>
 
+    <script src="application/scripts/x3dSceneController.js"></script>
     <script src="application/scripts/x3dCameraController.js"></script>
     <script type="text/javascript">
         window.onload = function () {
@@ -81,7 +82,6 @@
                 <option value="Can" selected>Can</option>
                 <option value="Bottle">Bottle</option>
                 <option value="Glass">Glass</option>
-                <option value="TestBox">TestBox</option>
                 <option value="TestScene">TestScene</option>
 
             </select>
@@ -89,14 +89,13 @@
                 <option value="Coke" selected>Coke</option>
                 <option value="Sprite">Sprite</option>
                 <option value="Fanta">Fanta</option>
-                <option value="TestBox">TestBox</option>
 
             </select>
         </form>
 
         <button onclick="console.log(document.getElementById('InlineModel__MAT_Url').getAttribute('url'))">Debug mat
         </button>
-        <button onclick="LoadReset();">Clear Inline</button>
+        <button onclick="ToggleWireFrame();">ToggleWireFrame</button>
     </div>
     <div class="col-sm-12 x3dScreen">
         <x3d id='x3dScreen_x3d' showStat='false' showLog='false' showProgress='false' runtimeEnabled="true">
