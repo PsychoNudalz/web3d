@@ -110,18 +110,18 @@ class Model
         $insertCommand = "INSERT INTO Model_Texture(MeshName,Brand,PathName,DiffuseColor,Shininess,SpecularColor)VALUES (";
         $insertCommand_end = ");";
         try {
-            $this->dbhandle->exec($insertCommand . "'TestBox','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestBox','TestBox','../TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','assets/Model/CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','../CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
 
             print new Exception($e->getMessage());
         } try {
-            $this->dbhandle->exec($insertCommand . "'TestBox','Sprite','assets/Model/Bottle/Just_Bottle.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestBox','Sprite','../Bottle/Just_Bottle.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
 
@@ -130,20 +130,20 @@ class Model
         
         //Can
         try {
-            $this->dbhandle->exec($insertCommand . "'Can','TestBox','assets/Model/TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','TestBox','../TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
 
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Can','Coke','assets/Model/CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','Coke','../CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Can','Sprite','assets/Model/CokeCan/Can_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','Sprite','../CokeCan/Can_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
@@ -151,19 +151,19 @@ class Model
         
         //Bottle
         try {
-            $this->dbhandle->exec($insertCommand . "'Bottle','Sprite','assets/Model/Bottle/Bottle_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Bottle','Sprite','../Bottle/Bottle_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Bottle','Coke','assets/Model/Bottle/Bottle_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Bottle','Coke','../Bottle/Bottle_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Bottle','Fanta','assets/Model/Bottle/Bottle_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Bottle','Fanta','../Bottle/Bottle_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
@@ -171,38 +171,38 @@ class Model
         
         //Glass
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Coke','assets/Model/Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Coke','../Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Sprite','assets/Model/Glass/Glass_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Sprite','../Glass/Glass_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Glass','Fanta','assets/Model/Glass/Glass_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','Fanta','../Glass/Glass_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         //TestScene
         try {
-            $this->dbhandle->exec($insertCommand . "'TestScene','Coke','assets/Model/Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestScene','Coke','../Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'TestScene','Sprite','assets/Model/Glass/Glass_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestScene','Sprite','../Glass/Glass_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'TestScene','Fanta','assets/Model/Glass/Glass_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestScene','Fanta','../Glass/Glass_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());

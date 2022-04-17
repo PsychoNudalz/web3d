@@ -115,6 +115,40 @@ function UpdateTexture(x3DMaterial: X3DMaterial) {
     document.getElementById("X3D_imageTexture").url = x3DMaterial.textureURL;
 }
 
+function UpdateTextureInline(x3DMaterial: X3DMaterial,meshName:string) {
+
+    if (meshName == null) {
+        meshName = "Default";
+    }
+    var idName = "InlineModel_" + meshName;
+    if (document.getElementById(idName+"__MAT_Url") == null) {
+        console.warn("Failed to get Texture ID: "+idName+"__MAT_Url");
+        return;
+    }
+
+    try {
+
+        // @ts-ignore
+        document.getElementById(idName+"__MAT_Url").setAttribute('url', x3DMaterial.textureURL);
+        // @ts-ignore
+        console.warn("COMPLETED to load Texture URL: " + document.getElementById(idName+"__MAT_Url").getAttribute('url'));
+    } catch (error) {
+        console.error("Failed to load Texture URL");
+    }
+    try {
+
+        // @ts-ignore
+        document.getElementById(idName+"__MAT_Mat").setAttribute('diffuseColor', x3DMaterial.diffuseColor);
+        // @ts-ignore
+        document.getElementById(idName+"__MAT_Mat").setAttribute('shininess', x3DMaterial.shininess);
+        // @ts-ignore
+        document.getElementById(idName+"__MAT_Mat").setAttribute('specularColor', x3DMaterial.specularColor);
+    } catch (error) {
+        console.error("Failed to load Texture Mat");
+    }
+
+}
+
 function UpdateMesh(x3dMesh: X3DModel) {
 
     try {
@@ -149,51 +183,141 @@ function UpdateMesh(x3dMesh: X3DModel) {
 
 }
 
+function SetAllMeshVisible(b: Boolean) {
+    // @ts-ignore
+    document.getElementById("X3D_inline_model_Default").setAttribute("visible", b);
+    // @ts-ignore
+    document.getElementById("X3D_inline_model_Can").setAttribute("visible", b);
+    // @ts-ignore
+    document.getElementById("X3D_inline_model_Bottle").setAttribute("visible", b);
+    // @ts-ignore
+    document.getElementById("X3D_inline_model_Glass").setAttribute("visible", b);
+    // @ts-ignore
+    document.getElementById("X3D_inline_model_TestScene").setAttribute("visible", b);
+}
 
-function LoadMesh(selection:any) {
+
+function SetActiveMeshVisible(meshName :string|null,b:boolean){
+    console.log("updating inline mesh");
+    if (meshName == null) {
+        meshName = "Default";
+    }
+    var idName = "X3D_inline_model_" + meshName;
+    try {
+        var ref = document.getElementById(idName);
+        if (ref != null) {
+
+            // @ts-ignore
+            ref.setAttribute("visible", b);
+        }
+
+    } catch (error) {
+    }
+
+}
+
+function LoadAllMesh() {
+    LoadMesh("Can");
+    LoadMesh("Bottle");
+    LoadMesh("Glass");
+    LoadMesh("TestScene");
+    SetAllMeshVisible(false);
+}
+
+function UpdateMeshInline(url: string, meshName: string) {
+    console.log("updating inline mesh");
+    if (meshName == null) {
+        meshName = "Default";
+    }
+    var idName = "X3D_inline_model_" + meshName;
+    try {
+        var ref = document.getElementById(idName);
+        if (ref != null) {
+            if (ref.getAttribute("url") == url) {
+                return;
+            }
+
+            // @ts-ignore
+            ref.setAttribute("url", url);
+        }
+
+    } catch (error) {
+    }
+}
+
+function LoadMesh(selection: any) {
+    SetAllMeshVisible(false);
     console.log('Selected Mesh model:', selection);
     //GETTING MESH
-    var urlMesh = "application/model/getMesh.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
+    var urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
     console.log('URL to PHP Model is:', urlMesh);
     var getJSONFail: boolean = true;
     $.getJSON(urlMesh)
         .done(function (json) {
             // Debug
-            console.log('Get Mesh: ', json);
-            UpdateMesh(new X3DModel(json.texCoordIndex[0], json.coordIndex[0], json.coordinate[0], json.textureCoordinate[0]));
+            console.log('Get Mesh: ', json.Path);
+            //Loading x3D from path;
+            // var x3dMesh: X3DModel | null;
+            // x3dMesh = LoadMeshByX3D(json.Path);
+            if (json.Path != null) {
+                UpdateMeshInline(json.Path, selection);
+                console.log("Mesh Loaded");
+
+                try {
+                    LoadTexture_HTML();
+
+                } catch (error) {
+
+                }
+
+            } else {
+                console.error("Can not load mesh at: " + json.Path);
+            }
             getJSONFail = false;
         })
         .fail(function (d, textStatus, error) {
-            console.log('ModelLoader getMesh: Server returned an Error, trap this in your PHP Server code');
-            console.warn("getJSON failed, status: " + textStatus + ", error: " + error)
-
+            console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
+            console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
 
         });
-    if (getJSONFail) {
-        console.warn("Trying to fetch x3d directly");
-        urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
-        $.getJSON(urlMesh)
-            .done(function (json) {
-                // Debug
-                console.log('Get Mesh: ', json);
-                //Loading x3D from path;
-                var x3dMesh: X3DModel | null;
-                x3dMesh = LoadMeshByX3D(json.Path);
-                console.log(x3dMesh);
-                if (x3dMesh != null) {
-                    UpdateMesh(x3dMesh);
-                } else {
-                    console.error("Can not load mesh at: " + json.Path);
-                }
-                getJSONFail = false;
-            })
-            .fail(function (d, textStatus, error) {
-                console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
-                console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
 
-            });
-    }
-    LoadTexture_HTML();
+    // $.getJSON(urlMesh)
+    //     .done(function (json) {
+    //         // Debug
+    //         console.log('Get Mesh: ', json);
+    //         UpdateMesh(new X3DModel(json.texCoordIndex[0], json.coordIndex[0], json.coordinate[0], json.textureCoordinate[0]));
+    //         getJSONFail = false;
+    //     })
+    //     .fail(function (d, textStatus, error) {
+    //         console.log('ModelLoader getMesh: Server returned an Error, trap this in your PHP Server code');
+    //         console.warn("getJSON failed, status: " + textStatus + ", error: " + error)
+    //
+    //
+    //     });
+    // if (getJSONFail) {
+    //     console.warn("Trying to fetch x3d directly");
+    //     urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
+    //     $.getJSON(urlMesh)
+    //         .done(function (json) {
+    //             // Debug
+    //             console.log('Get Mesh: ', json);
+    //             //Loading x3D from path;
+    //             var x3dMesh: X3DModel | null;
+    //             x3dMesh = LoadMeshByX3D(json.Path);
+    //             console.log(x3dMesh);
+    //             if (x3dMesh != null) {
+    //                 UpdateMesh(x3dMesh);
+    //             } else {
+    //                 console.error("Can not load mesh at: " + json.Path);
+    //             }
+    //             getJSONFail = false;
+    //         })
+    //         .fail(function (d, textStatus, error) {
+    //             console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
+    //             console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
+    //
+    //         });
+    // }
 }
 
 function LoadMesh_JQ() {
@@ -206,16 +330,20 @@ function LoadMesh_JQ() {
 
     });
 }
+
 function LoadMesh_HTML() {
     // @ts-ignore
     LoadMesh($("#selectMesh option:selected").val());
 }
 
+
+
 function LoadTexture(selection: any) {
     console.log('Selected Texture:', selection);
 
     //GETTING TEXTURE
-    var urlTexture = "application/model/getTexture.php?meshName=" + $("#selectMesh option:selected").val() + "&brandName=" + selection;
+    let mesh = $("#selectMesh option:selected").val();
+    var urlTexture = "application/model/getTexture.php?meshName=" + mesh + "&brandName=" + selection;
     console.log('URL to PHP Model is:', urlTexture);
     $.getJSON(urlTexture)
         .done(function (json) {
@@ -228,8 +356,14 @@ function LoadTexture(selection: any) {
                 json.shininess,
                 json.specularColor,
                 json.textureURL);
-            // @ts-ignore
-            UpdateTexture(material);
+            try {
+                // @ts-ignore
+                UpdateTextureInline(material,mesh);
+            } catch (error) {
+
+            }
+
+            // UpdateTexture(material);
         })
         .fail(function (d, textStatus, error) {
                 console.log('ModelLoader: Server returned an Error, trap this in your PHP Server code');
@@ -252,12 +386,17 @@ function LoadTexture_JQ() {
         $("#selectTexture").change(function () {
 
             var selection = $(this).val();
+            LoadMesh_HTML();
             LoadTexture(selection);
-
         });
     });
 }
 
-function TestPrint(){
+function LoadAllTextures() {
+
+}
+
+
+function TestPrint() {
     console.log("THIS WORKS");
 }
