@@ -23,7 +23,7 @@ class Controller
     function home()
     {
         $data = $this->model->model3D_info();
-        $this->load->view('index_OLD', $data);
+        $this->load->view('view', $data);
     }
 
     function apiCreateTable()

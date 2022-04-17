@@ -148,6 +148,12 @@ class Model
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
+        try {
+            $this->dbhandle->exec($insertCommand . "'Can','Fanta','../CokeCan/Can_Fanta.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
         
         //Bottle
         try {
