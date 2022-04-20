@@ -1,13 +1,15 @@
 <?php
 include '../debug/ChromePhp.php';
-ChromePhp::log('getAsset.php: Activate');
-ChromePhp::log($_SERVER);
+ChromePhp::log('getAsset.php: Activate 2');
+//ChromePhp::log($_SERVER);
 
 $assetName = $_GET['assetName'];
+
 $result =null;
 try {
-    $getAsset =  new getMesh();
-    $result["Path"] = $getAsset->dbGetData_Asset($assetName);
+    $getAsset =  new getAsset();
+    $result = $getAsset->dbGetData_Asset($assetName);
+
 //    $getMesh =  new getMesh();
 //    $result["Texture"] = $getMesh->dbGetData_Texture($meshName,$brandName);
 } catch (PDOEXception $e) {
@@ -65,7 +67,7 @@ class getAsset
 //            $sql = 'SELECT * FROM Model_Mesh WHERE MeshName = "can";';
 //            $sql = 'SELECT * FROM Model_Mesh ;';
             // Use PDO query() to query the database with the prepared SQL statement
-            ChromePhp::log($sql);
+            ChromePhp::log("Return SQL: ".$sql);
 
             $stmt = $this->dbhandle->query($sql);
             // Set up an array to return the results to the view
@@ -75,7 +77,7 @@ class getAsset
             // Use a while loop to loop through the rows	
             while ($data = $stmt->fetch()) {
                 ChromePhp::log('Found ' . $data['PathName']);
-                $result = ($data['PathName']);
+                $result["Path"] = ($data['PathName']);
 //                ChromePhp::log($unPackedJSON);
 
                 //increment the row index

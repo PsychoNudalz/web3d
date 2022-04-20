@@ -63,6 +63,11 @@ class Model
         return "CREATE TABLE AssetTable (AssetName TEXT PRIMARY KEY,PathName TEXT NOT NULL  ); ";
     }
 
+    public function dbCreateTable_CardTable()
+    {
+        return "CREATE TABLE CardTable (AssetName TEXT PRIMARY KEY,PathName TEXT NOT NULL  ); ";
+    }
+
 
     public function dbCreateTable()
     {

@@ -1,5 +1,6 @@
 function AssetLoader_LoadALL() {
     AssetLoader_img("carousel_img_1", "CokeTruck");
+    AssetLoader_img("carousel_img_2", "CokeBottles");
 }
 1;
 function AssetLoader_img(id, assetName) {
@@ -12,9 +13,12 @@ function AssetLoader_img(id, assetName) {
         console.log('Get asset: ', json.Path);
         if (json.Path != null) {
             // @ts-ignore
-            var imgElement = document.getElementById("id");
+            var imgElement = document.getElementById(id);
             if (imgElement != null) {
                 imgElement.setAttribute("src", json.Path);
+            }
+            else {
+                console.error("Can't find element: " + id);
             }
             console.log("Asset: " + assetName + " Loaded to: " + id);
         }
