@@ -48,7 +48,9 @@
 
                     // LoadMesh(selection);
                     SetAllMeshVisible(false);
-                    SetActiveMeshVisible(selection, true);
+                    // SetActiveMeshVisible(selection, true);
+                    SwitchActiveMesh(selection);
+                    
                     LoadTexture($("#selectTexture option:selected").val());
                 }
 

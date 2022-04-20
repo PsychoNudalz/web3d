@@ -5,19 +5,24 @@
         <div class="col-sm-12 col-md-9 x3dScreen">
             <x3d id='x3dScreen_x3d' showStat='true' showLog='true' showProgress='true ' runtimeEnabled="true">
                 <scene id="scene" DEF='scene'>
-                <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
+
+                    <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
                     <transform DEF='Model' id="MainModel">
                         <!--                    //Only modifying on the inline causes it to loads in multiple models for some reason-->
-                        <Inline id="X3D_inline_model_Default" nameSpaceName="InlineModel_Default" mapDEFToID="true"
-                                url=""
-                                visible="true"></Inline>
-                        <Inline id="X3D_inline_model_Can" nameSpaceName="InlineModel_Can" mapDEFToID="true" url=""
-                                visible="false"></Inline>
-                        <Inline id="X3D_inline_model_Bottle" nameSpaceName="InlineModel_Bottle" mapDEFToID="true" url=""
-                                visible="false"></Inline>
-                        <Inline id="X3D_inline_model_Glass" nameSpaceName="InlineModel_Glass" mapDEFToID="true" url=""
-                                visible="false"></Inline>
+                        <Switch id="X3D_ModelSwitch" bboxCenter='0,0,0' bboxSize='-1,-1,-1' children='X3DChildNode'
+                                metadata='X3DMetadataObject'
+                                render='true' visible='true' whichChoice='0'>
 
+                            <Inline id="X3D_inline_model_Can" nameSpaceName="InlineModel_Can" mapDEFToID="true" url=""
+                                    visible="true"></Inline>
+                            <Inline id="X3D_inline_model_Bottle" nameSpaceName="InlineModel_Bottle" mapDEFToID="true"
+                                    url=""
+                                    visible="true"></Inline>
+                            <Inline id="X3D_inline_model_Glass" nameSpaceName="InlineModel_Glass" mapDEFToID="true"
+                                    url=""
+                                    visible="true"></Inline>
+
+                        </Switch>
 
                     </transform>
                     <transform id="x3d_Camera" DEF='Camera' rotation='0 0 0 1'
@@ -33,6 +38,7 @@
                                     intensity="2"></pointLight>
                     </transform>
                     <timeSensor DEF='Timer' cycleInterval='3' loop='true'></timeSensor>
+
                 </scene>
             </x3d>
         </div>
@@ -56,25 +62,26 @@
             InitialiseViewpoints();
             LoadAllMesh();
             SetAllMeshVisible(false);
-            SetActiveMeshVisible("Can", true);
+            // SetActiveMeshVisible("Can", true);
+            
 
-            
-            
+
             $("#selectMesh").click(function () {
                 var selection = $(this).val();
-                if(selection!=null){
+                if (selection != null) {
 
-                // LoadMesh(selection);
-                SetAllMeshVisible(false);
-                SetActiveMeshVisible(selection, true);
-                LoadTexture($("#selectTexture option:selected").val());
+                    // LoadMesh(selection);
+                    SetAllMeshVisible(false);
+                    // SetActiveMeshVisible(selection, true);
+                    SwitchActiveMesh(selection);
+                    LoadTexture($("#selectTexture option:selected").val());
                 }
 
             });
             $("#selectTexture").change(function () {
                 var selection = $(this).val();
                 // LoadMesh_HTML();
-                if(selection!=null) {
+                if (selection != null) {
 
                     LoadTexture(selection);
                 }

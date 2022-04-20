@@ -10692,7 +10692,7 @@ figure {
 
 .camera-font:hover {
   font-weight: 700;
-  color: #030303;
+  color: rgb(3, 3, 3);
 }
 
 .btn-responsive {

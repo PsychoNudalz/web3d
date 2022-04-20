@@ -29,8 +29,8 @@
             // LoadNavbar();
             LoadAllMesh();
             SetAllMeshVisible(false);
-            SetActiveMeshVisible($("#selectMesh option:selected").val(), true);
-
+            // SetActiveMeshVisible($("#selectMesh option:selected").val(), true);
+            SwitchActiveMesh($("#selectMesh option:selected").val());
 
             // console.log("Test: "+Quaternion.fromEuler(0,0,0));
         });</script>
@@ -56,7 +56,8 @@ include("application/scripts/navbar.php");
             var selection = $(this).val();
             // LoadMesh(selection);
             SetAllMeshVisible(false);
-            SetActiveMeshVisible(selection, true);
+            // SetActiveMeshVisible(selection, true);
+            SwitchActiveMesh(selection);
             LoadTexture($("#selectTexture option:selected").val());
         });
 

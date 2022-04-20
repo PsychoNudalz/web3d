@@ -101,7 +101,7 @@ function UpdateTexture(x3DMaterial) {
 }
 function UpdateTextureInline(x3DMaterial, meshName) {
     if (meshName == null) {
-        meshName = "Default";
+        meshName = "Can";
     }
     var idName = "InlineModel_" + meshName;
     if (document.getElementById(idName + "__MAT_Url") == null) {
@@ -154,8 +154,6 @@ function UpdateMesh(x3dMesh) {
 }
 function SetAllMeshVisible(b) {
     // @ts-ignore
-    document.getElementById("X3D_inline_model_Default").setAttribute("visible", b);
-    // @ts-ignore
     document.getElementById("X3D_inline_model_Can").setAttribute("visible", b);
     // @ts-ignore
     document.getElementById("X3D_inline_model_Bottle").setAttribute("visible", b);
@@ -167,7 +165,7 @@ function SetAllMeshVisible(b) {
 function SetActiveMeshVisible(meshName, b) {
     console.log("updating inline mesh");
     if (meshName == null) {
-        meshName = "Default";
+        meshName = "Can";
     }
     var idName = "X3D_inline_model_" + meshName;
     try {
@@ -180,12 +178,28 @@ function SetActiveMeshVisible(meshName, b) {
     catch (error) {
     }
 }
+function SwitchActiveMesh(meshName) {
+    var switchNum = 0;
+    if (meshName == "Can") {
+        switchNum = 0;
+    }
+    if (meshName == "Bottle") {
+        switchNum = 1;
+    }
+    if (meshName == "Glass") {
+        switchNum = 2;
+    }
+    var switchModel = document.getElementById("X3D_ModelSwitch");
+    if (switchModel != null) {
+        switchModel.setAttribute("whichchoice", String(switchNum));
+    }
+}
 function LoadAllMesh() {
     LoadMesh("Can");
     LoadMesh("Bottle");
     LoadMesh("Glass");
     // LoadMesh("TestScene");
-    SetAllMeshVisible(false);
+    // SetAllMeshVisible(false);
 }
 function UpdateMeshInline(url, meshName) {
     console.log("updating inline mesh");
@@ -207,7 +221,7 @@ function UpdateMeshInline(url, meshName) {
     }
 }
 function LoadMesh(selection) {
-    SetAllMeshVisible(false);
+    // SetAllMeshVisible(false);
     console.log('Selected Mesh model:', selection);
     //GETTING MESH
     var brandName = $("#selectTexture option:selected").val();
@@ -240,7 +254,7 @@ function LoadMesh(selection) {
     })
         .fail(function (d, textStatus, error) {
         console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
-        console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error);
+        console.warn(" getX3D failed, status: " + textStatus + ", error: " + error);
     });
 }
 function LoadMesh_JQ() {
@@ -276,7 +290,7 @@ function LoadTexture(selection) {
     })
         .fail(function (d, textStatus, error) {
         console.log('ModelLoader: Server returned an Error, trap this in your PHP Server code');
-        console.warn("getJSON failed, status: " + textStatus + ", error: " + error);
+        console.warn("getTexture failed, status: " + textStatus + ", error: " + error);
     });
 }
 function LoadTexture_HTML() {
