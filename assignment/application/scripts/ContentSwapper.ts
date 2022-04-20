@@ -3,23 +3,29 @@ $(document).ready(function () {
 });
 
 function ChangeToModel() {
+    ResetPages();
+
     $('#HOMEPAGE').hide();
 
     $('#MODEL').show();
     console.log("Click model");
 }
 
-function selectPage() {
-    var selectedPage: boolean = false;
-    console.log("Page change");
-
+function ResetPages() {
     $('#HOMEPAGE').show();
     $('#ABOUT').hide();
     $('#MODEL').hide();
+}
+
+function selectPage() {
+    var selectedPage: boolean = false;
+    console.log("Page change");
+    ResetPages();
 
     $('#navHome').click(function () {
         selectedPage = true;
         console.log("Page change: Home");
+        ResetPages();
 
         $('#HOMEPAGE').show();
 
@@ -27,6 +33,8 @@ function selectPage() {
 
     $('#navAbout').click(function () {
         selectedPage = true;
+        ResetPages();
+
         $('#HOMEPAGE').hide();
 
         $('#ABOUT').show();

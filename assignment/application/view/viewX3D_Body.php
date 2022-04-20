@@ -5,6 +5,7 @@
         <div class="col-sm-12 col-md-9 x3dScreen">
             <x3d id='x3dScreen_x3d' showStat='false' showLog='false' showProgress='false' runtimeEnabled="true">
                 <scene id="scene" DEF='scene'>
+                <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
                     <transform DEF='Model' id="MainModel">
                         <!--                    //Only modifying on the inline causes it to loads in multiple models for some reason-->
                         <Inline id="X3D_inline_model_Default" nameSpaceName="InlineModel_Default" mapDEFToID="true"
@@ -19,17 +20,6 @@
                         <Inline id="X3D_inline_model_TestScene" nameSpaceName="InlineModel_TestScene" mapDEFToID="true"
                                 url=""
                                 visible="false"></Inline>
-                        <!--                        <indexedFaceSet id="X3D_indexedFaceSet" DEF='FACESET_Cube_1' ccw='false'-->
-                        <!--                                        creaseAngle='0.698132'-->
-                        <!--                                        solid='false'-->
-                        <!--                                        texCoordIndex='0 1 4 2 -1 3 5 9 7 -1 7 9 15 12 -1 11 14 1 0 -1 1 13 8 4 -1 10 0 2 6 -1'-->
-                        <!--                                        coordIndex='0 1 3 2 -1 2 3 5 4 -1 4 5 7 6 -1 6 7 1 0 -1 1 7 5 3 -1 6 0 2 4 -1'>-->
-                        <!--                            <coordinate id="X3D_coordinate"-->
-                        <!--                                        point='-100 -100 -100 -100 100 -100 -100 -100 100 -100 100 100 100 -100 100 100 100 100 100 -100 -100 100 100 -100'></coordinate>-->
-                        <!--                            <textureCoordinate id="X3D_textureCoordinate"-->
-                        <!--                                               point='0.554222 0.682098 0.280446 0.682098 0.554222 0.993329 0.629133 0.330839 0.280446 0.993329 0.629133 0.019608 0.827997 0.993329 0.317902 0.330839 0.006671 0.993329 0.317902 0.019608 0.827997 0.682098 0.554222 0.370867 0.006671 0.330839 0.006671 0.682098 0.280446 0.370867 0.006671 0.019608'></textureCoordinate>-->
-                        <!--                        </indexedFaceSet>-->
-
 
                     </transform>
                     <transform id="x3d_Camera" DEF='Camera' rotation='0 0 0 1'
@@ -64,11 +54,14 @@
     <script src="application/scripts/x3dCameraController.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            console.log("Idont gking now")
+            // console.log("Idont gking now")
             InitialiseViewpoints();
             LoadAllMesh();
+            SetAllMeshVisible(false);
             SetActiveMeshVisible("Can", true);
 
+            
+            
             $("#selectMesh").click(function () {
                 var selection = $(this).val();
                 if(selection!=null){

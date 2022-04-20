@@ -61,10 +61,12 @@ class getAsset
 
         try {
             // Prepare a statement to get all records from the Model_3D table
-            $sql = 'SELECT * FROM AssetTable WHERE MeshName = "' . $assetName . '";';
+            $sql = 'SELECT * FROM AssetTable WHERE AssetName = "' . $assetName . '";';
 //            $sql = 'SELECT * FROM Model_Mesh WHERE MeshName = "can";';
 //            $sql = 'SELECT * FROM Model_Mesh ;';
             // Use PDO query() to query the database with the prepared SQL statement
+            ChromePhp::log($sql);
+
             $stmt = $this->dbhandle->query($sql);
             // Set up an array to return the results to the view
             $result = null;
@@ -72,7 +74,7 @@ class getAsset
             // Use PDO fetch() to retrieve the results from the database using a while loop
             // Use a while loop to loop through the rows	
             while ($data = $stmt->fetch()) {
-                ChromePhp::log('Unpacking ' . $data['PathName']);
+                ChromePhp::log('Found ' . $data['PathName']);
                 $result = ($data['PathName']);
 //                ChromePhp::log($unPackedJSON);
 

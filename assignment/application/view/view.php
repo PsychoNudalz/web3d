@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
+        <link rel='stylesheet' type='text/css' href='node_modules/x3dom/x3dom.css'></link>
 
     <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
 
@@ -38,34 +38,31 @@
 <!---->
 <!--            // console.log("Test: "+Quaternion.fromEuler(0,0,0));-->
 <!--        });</script>-->
-    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
 
 
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 
     <script src="application/scripts/ModelLoader.js"></script>
+        <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
     <!--    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
     <script type="text/javascript">
         $(document).ready(function () {
-
             LoadPhp_Homepage();
             LoadPhp_Model();
             LoadPhp_Navbar();
-
-            AssetLoader_LoadALL();
         });
     </script>
 </head>
 <body class="bg-primary">
 
 
-<div id="navbarPHP">
-    
-
-</div>
-<!--<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">-->
-
+<!--<div id="navbarPHP">-->
+<!--    -->
+<!---->
+<!--</div>-->
+<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="navbarPHP">
+</nav>
 
 
 

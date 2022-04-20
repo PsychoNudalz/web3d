@@ -2,23 +2,29 @@ $(document).ready(function () {
     selectPage();
 });
 function ChangeToModel() {
+    ResetPages();
     $('#HOMEPAGE').hide();
     $('#MODEL').show();
     console.log("Click model");
 }
-function selectPage() {
-    var selectedPage = false;
-    console.log("Page change");
+function ResetPages() {
     $('#HOMEPAGE').show();
     $('#ABOUT').hide();
     $('#MODEL').hide();
+}
+function selectPage() {
+    var selectedPage = false;
+    console.log("Page change");
+    ResetPages();
     $('#navHome').click(function () {
         selectedPage = true;
         console.log("Page change: Home");
+        ResetPages();
         $('#HOMEPAGE').show();
     });
     $('#navAbout').click(function () {
         selectedPage = true;
+        ResetPages();
         $('#HOMEPAGE').hide();
         $('#ABOUT').show();
     });

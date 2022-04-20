@@ -64,3 +64,11 @@
         </div>
     </div>
 </figure>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        AssetLoader_LoadALL();
+    });
+</script>

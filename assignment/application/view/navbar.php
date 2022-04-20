@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">
+<!--<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">-->
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"> </span>
@@ -33,4 +33,4 @@
     </div>
     <script src="application/scripts/ContentSwapper.js"></script>
 
-</nav>
+<!--</nav>-->
