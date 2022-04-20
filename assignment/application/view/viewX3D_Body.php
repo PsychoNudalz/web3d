@@ -3,7 +3,7 @@
     <div class="row">
 
         <div class="col-sm-12 col-md-9 x3dScreen">
-            <x3d id='x3dScreen_x3d' showStat='false' showLog='false' showProgress='false' runtimeEnabled="true">
+            <x3d id='x3dScreen_x3d' showStat='true' showLog='true' showProgress='true ' runtimeEnabled="true">
                 <scene id="scene" DEF='scene'>
                 <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
                     <transform DEF='Model' id="MainModel">
@@ -17,9 +17,7 @@
                                 visible="false"></Inline>
                         <Inline id="X3D_inline_model_Glass" nameSpaceName="InlineModel_Glass" mapDEFToID="true" url=""
                                 visible="false"></Inline>
-                        <Inline id="X3D_inline_model_TestScene" nameSpaceName="InlineModel_TestScene" mapDEFToID="true"
-                                url=""
-                                visible="false"></Inline>
+
 
                     </transform>
                     <transform id="x3d_Camera" DEF='Camera' rotation='0 0 0 1'

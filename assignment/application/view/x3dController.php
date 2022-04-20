@@ -17,7 +17,7 @@
                         <option value="Can" selected>Can</option>
                         <option value="Bottle">Bottle</option>
                         <option value="Glass">Glass</option>
-                        <option value="TestScene">TestScene</option>
+<!--                        <option value="TestScene">TestScene</option>-->
 
                     </select>
                     <select id="selectTexture">
@@ -35,6 +35,7 @@
 
             <div class="btn-group ">
                 <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="ToggleWireFrame()">Toggle</a>
+                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetAllMeshVisible(false)">Toggle</a>
             </div>
         </div>
     </div>

@@ -193,7 +193,7 @@ function SetAllMeshVisible(b: Boolean) {
     // @ts-ignore
     document.getElementById("X3D_inline_model_Glass").setAttribute("visible", b);
     // @ts-ignore
-    document.getElementById("X3D_inline_model_TestScene").setAttribute("visible", b);
+    // document.getElementById("X3D_inline_model_TestScene").setAttribute("visible", b);
 }
 
 
@@ -220,7 +220,7 @@ function LoadAllMesh() {
     LoadMesh("Can");
     LoadMesh("Bottle");
     LoadMesh("Glass");
-    LoadMesh("TestScene");
+    // LoadMesh("TestScene");
     SetAllMeshVisible(false);
 }
 
