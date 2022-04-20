@@ -94,6 +94,27 @@ class Controller
 
         $this->load->view('viewX3D');
     }
+    
+    function apiLoadPage_Homepage(){
+        $this->apiLoadPage("homepage");
+    }
+    function apiLoadPage_Model(){
+        $this->apiLoadPage("viewX3D_Body");
+    }
+
+    function apiLoadPage_x3dController()
+    {
+        $this->apiLoadPage("x3dController");
+    }
+    function apiLoadPage_navbarPHP()
+    {
+        $this->apiLoadPage("navbar");
+    }
+    
+    function apiLoadPage($pageName){
+        ChromePhp::log("Loading Page: ".$pageName);
+        $this->load->view($pageName);
+    }
 
 
     function dbCreateTable()

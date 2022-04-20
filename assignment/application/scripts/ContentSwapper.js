@@ -1,6 +1,11 @@
 $(document).ready(function () {
     selectPage();
 });
+function ChangeToModel() {
+    $('#HOMEPAGE').hide();
+    $('#MODEL').show();
+    console.log("Click model");
+}
 function selectPage() {
     var selectedPage = false;
     console.log("Page change");
@@ -17,11 +22,17 @@ function selectPage() {
         $('#HOMEPAGE').hide();
         $('#ABOUT').show();
     });
-    $('#navModel').click(function () {
+    $('#navModel_Can').click(function () {
         selectedPage = true;
-        $('#HOMEPAGE').hide();
-        $('#MODEL').show();
-        console.log("Click model");
+        ChangeToModel();
+    });
+    $('#navModel_Bottle').click(function () {
+        selectedPage = true;
+        ChangeToModel();
+    });
+    $('#navModel_Glass').click(function () {
+        selectedPage = true;
+        ChangeToModel();
     });
 }
 //# sourceMappingURL=ContentSwapper.js.map

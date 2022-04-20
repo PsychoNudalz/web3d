@@ -249,7 +249,12 @@ function LoadMesh(selection: any) {
     SetAllMeshVisible(false);
     console.log('Selected Mesh model:', selection);
     //GETTING MESH
-    var urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
+    let brandName = $("#selectTexture option:selected").val();
+    if (brandName=="undefined"){
+        brandName = "Coke";
+    }
+    
+    var urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + brandName;
     console.log('URL to PHP Model is:', urlMesh);
     var getJSONFail: boolean = true;
     $.getJSON(urlMesh)
@@ -280,44 +285,6 @@ function LoadMesh(selection: any) {
             console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
 
         });
-
-    // $.getJSON(urlMesh)
-    //     .done(function (json) {
-    //         // Debug
-    //         console.log('Get Mesh: ', json);
-    //         UpdateMesh(new X3DModel(json.texCoordIndex[0], json.coordIndex[0], json.coordinate[0], json.textureCoordinate[0]));
-    //         getJSONFail = false;
-    //     })
-    //     .fail(function (d, textStatus, error) {
-    //         console.log('ModelLoader getMesh: Server returned an Error, trap this in your PHP Server code');
-    //         console.warn("getJSON failed, status: " + textStatus + ", error: " + error)
-    //
-    //
-    //     });
-    // if (getJSONFail) {
-    //     console.warn("Trying to fetch x3d directly");
-    //     urlMesh = "application/model/getMeshX3D.php?meshName=" + selection + "&brandName=" + $("#selectTexture option:selected").val();
-    //     $.getJSON(urlMesh)
-    //         .done(function (json) {
-    //             // Debug
-    //             console.log('Get Mesh: ', json);
-    //             //Loading x3D from path;
-    //             var x3dMesh: X3DModel | null;
-    //             x3dMesh = LoadMeshByX3D(json.Path);
-    //             console.log(x3dMesh);
-    //             if (x3dMesh != null) {
-    //                 UpdateMesh(x3dMesh);
-    //             } else {
-    //                 console.error("Can not load mesh at: " + json.Path);
-    //             }
-    //             getJSONFail = false;
-    //         })
-    //         .fail(function (d, textStatus, error) {
-    //             console.log('ModelLoader getX3D: Server returned an Error, trap this in your PHP Server code');
-    //             console.warn(" getX3D getJSON failed, status: " + textStatus + ", error: " + error)
-    //
-    //         });
-    // }
 }
 
 function LoadMesh_JQ() {

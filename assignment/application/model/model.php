@@ -58,12 +58,23 @@ class Model
         return "CREATE TABLE Model_Texture (MeshName TEXT NOT NULL,Brand TEXT NOT NULL  , PathName TEXT ,DiffuseColor TEXT, Shininess TEXT, SpecularColor TEXT,CONSTRAINT COMP_NAME PRIMARY KEY (MeshName, Brand)); ";
     }
 
+    public function dbCreateTable_AssetTable()
+    {
+        return "CREATE TABLE AssetTable (AssetName TEXT PRIMARY KEY,PathName TEXT NOT NULL  ); ";
+    }
+
 
     public function dbCreateTable()
     {
         $returnText = "";
+
+        $execText = $this->dbCreateTable_ModelTable() .
+            $this->dbCreateTable_TextureTable() .
+            $this->dbCreateTable_AssetTable();
+
+
         try {
-            $this->dbhandle->exec($this->dbCreateTable_ModelTable() . $this->dbCreateTable_TextureTable());;
+            $this->dbhandle->exec($execText);
             return "TABLE CREATION CLEAR";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
@@ -75,7 +86,7 @@ class Model
     {
         $returnText = "";
         try {
-            $this->dbhandle->exec("DROP TABLE IF EXISTS Model_Mesh;DROP TABLE IF EXISTS Model_Texture ;");
+            $this->dbhandle->exec("DROP TABLE IF EXISTS Model_Mesh;DROP TABLE IF EXISTS Model_Texture ;DROP TABLE IF EXISTS AssetTable ;");
             $this->dbCreateTable();
             return "TABLE RESET CLEAR";
 
@@ -120,14 +131,15 @@ class Model
         } catch (PD0EXception $e) {
 
             print new Exception($e->getMessage());
-        } try {
+        }
+        try {
             $this->dbhandle->exec($insertCommand . "'TestBox','Sprite','../Bottle/Just_Bottle.1Surface_Color.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
 
             print new Exception($e->getMessage());
         }
-        
+
         //Can
         try {
             $this->dbhandle->exec($insertCommand . "'Can','TestBox','../TestBox/CubeNormal.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
@@ -154,7 +166,7 @@ class Model
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
-        
+
         //Bottle
         try {
             $this->dbhandle->exec($insertCommand . "'Bottle','Sprite','../Bottle/Bottle_Sprite.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
@@ -174,7 +186,7 @@ class Model
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());
         }
-        
+
         //Glass
         try {
             $this->dbhandle->exec($insertCommand . "'Glass','Coke','../Glass/Glass_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
@@ -217,11 +229,26 @@ class Model
         $this->dbhandle = NULL;
     }
 
+    public function dbInsertData_AssetTable()
+    {
+        $insertCommand = "INSERT INTO AssetTable(AssetName,PathName) VALUES (";
+        $insertCommand_end = ");";
+        try {
+            $this->dbhandle->exec($insertCommand . "'CokeTruck','assets/img/ColaTruck.png'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'CokeBottles','assets/img/CokeBottles.png'" . $insertCommand_end);
+            return "X3D model data inserted successfully inside test1.db";
+        } catch (PD0EXception $e) {
+            print new Exception($e->getMessage());
+        }
+        $this->dbhandle = NULL;
+    }
+
     public function dbInsertData()
     {
         try {
             $this->dbInsertData_Mesh();
             $this->dbInsertData_Texture();
+            $this->dbInsertData_AssetTable();
             return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());

@@ -21,19 +21,23 @@
     <script src="application/scripts/ModelLoader.js"></script>
 
     <script src="application/scripts/ContentSwapper.js"></script>
-    <script src="application/scripts/x3dSceneController.js"></script>
-    <script src="application/scripts/x3dCameraController.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            console.log("Idont gking now")
-            InitialiseViewpoints();
-            // LoadNavbar();
-            LoadAllMesh();
-            SetActiveMeshVisible($("#selectMesh option:selected").val(), true);
+    <script src="application/scripts/PageLoader.js"></script>
+    <script src="application/scripts/AssetLoader.js"></script>
 
 
-            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
-        };</script>
+<!---->
+<!--    <script src="application/scripts/x3dSceneController.js"></script>-->
+<!--    <script src="application/scripts/x3dCameraController.js"></script>-->
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function () {-->
+<!--            console.log("Idont gking now")-->
+<!--            InitialiseViewpoints();-->
+<!--            LoadAllMesh();-->
+<!--            SetActiveMeshVisible($("#selectMesh option:selected").val(), true);-->
+<!---->
+<!---->
+<!--            // console.log("Test: "+Quaternion.fromEuler(0,0,0));-->
+<!--        });</script>-->
     <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
 
 
@@ -42,58 +46,39 @@
     <script src="application/scripts/ModelLoader.js"></script>
     <!--    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+            LoadPhp_Homepage();
+            LoadPhp_Model();
+            LoadPhp_Navbar();
+
+            AssetLoader_LoadALL();
+        });
+    </script>
 </head>
 <body class="bg-primary">
 
 
-<?php
-include("application/scripts/navbar.php");
-?>
+<div id="navbarPHP">
+    
+
+</div>
 <!--<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">-->
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#selectMesh").click(function () {
-            var selection = $(this).val();
-            // LoadMesh(selection);
-            SetAllMeshVisible(false);
-            SetActiveMeshVisible(selection, true);
-            LoadTexture($("#selectTexture option:selected").val());
-        });
 
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("#selectTexture").change(function () {
-            var selection = $(this).val();
-            // LoadMesh_HTML();
-            LoadTexture(selection);
-        });
-    });
-</script>
 
 
 <!--Content swapping zone-->
 <div class="container-fluid padding ">
     <div id="HOMEPAGE">
 
-        <?php
-        include("application/view/homepage.php");
-        ?>
-
     </div>
     <div id="MODEL">
-        <?php
-        include("application/view/viewX3D_Body.php");
-        ?>
+
     </div>
 </div>
-
-
 
 
 </body>

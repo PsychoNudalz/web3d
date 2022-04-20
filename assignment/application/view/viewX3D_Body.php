@@ -41,17 +41,53 @@
                     </transform>
 
                     <transform id="x3d_MainPointLight_TRANSFORM" DEF='Light' translation='2000 500 2000'>
-                        <pointLight id="x3d_MainPointLight_POINTLIGHT" DEF='LIGHT_Light' radius='1e+08' intensity="2"></pointLight>
+                        <pointLight id="x3d_MainPointLight_POINTLIGHT" DEF='LIGHT_Light' radius='1e+08'
+                                    intensity="2"></pointLight>
                     </transform>
                     <timeSensor DEF='Timer' cycleInterval='3' loop='true'></timeSensor>
                 </scene>
             </x3d>
         </div>
-        <div class="col-sm-12  col-md-3">
-            <?php
-            include("application/scripts/x3dController.php");
-            ?>
+        <script src="application/scripts/PageLoader.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadPhp_x3dController();
+            });
+        </script>
+        <div id="x3dController" class=" col-sm-12  col-md-3">
+
         </div>
     </div>
 
+
+    <script src="application/scripts/x3dSceneController.js"></script>
+    <script src="application/scripts/x3dCameraController.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("Idont gking now")
+            InitialiseViewpoints();
+            LoadAllMesh();
+            SetActiveMeshVisible("Can", true);
+
+            $("#selectMesh").click(function () {
+                var selection = $(this).val();
+                if(selection!=null){
+
+                // LoadMesh(selection);
+                SetAllMeshVisible(false);
+                SetActiveMeshVisible(selection, true);
+                LoadTexture($("#selectTexture option:selected").val());
+                }
+
+            });
+            $("#selectTexture").change(function () {
+                var selection = $(this).val();
+                // LoadMesh_HTML();
+                if(selection!=null) {
+
+                    LoadTexture(selection);
+                }
+            });
+            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
+        });</script>
 </div>

@@ -8,7 +8,7 @@ $brandName = $_GET['brandName'];
 $result =null;
 try {
     $getModel =  new getMesh();
-    $result = $getModel->dbGetData_Mesh($meshName);
+    $result = $getModel->dbGetData_Asset($meshName);
 //    $getMesh =  new getMesh();
 //    $result["Texture"] = $getMesh->dbGetData_Texture($meshName,$brandName);
 } catch (PDOEXception $e) {
@@ -77,7 +77,7 @@ class getMesh
 
     }
 
-    public function dbGetData_Mesh($meshName)
+    public function dbGetData_Asset($meshName)
     {
         ChromePhp::log("Model.php: Getting Model: " . $meshName);
 
