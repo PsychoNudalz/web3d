@@ -43,8 +43,8 @@
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 
     <script src="application/scripts/ModelLoader.js"></script>
-        <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
-    <!--    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
+<!--        <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>-->
+        <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
