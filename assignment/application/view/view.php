@@ -14,12 +14,16 @@
     <link rel="stylesheet" href="sass/custom.css">
 
     <link rel='stylesheet' type='text/css' href='node_modules/x3dom/x3dom.css'>
-<!--    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>-->
+    <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
+    <!--    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>-->
 
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+
+
     <script src="application/scripts/NavbarLoader.js"></script>
     <script src="application/scripts/ModelLoader.js"></script>
 
@@ -28,33 +32,14 @@
     <script src="application/scripts/AssetLoader.js"></script>
 
 
-<!---->
-<!--    <script src="application/scripts/x3dSceneController.js"></script>-->
-<!--    <script src="application/scripts/x3dCameraController.js"></script>-->
-<!--    <script type="text/javascript">-->
-<!--        $(document).ready(function () {-->
-<!--            console.log("Idont gking now")-->
-<!--            InitialiseViewpoints();-->
-<!--            LoadAllMesh();-->
-<!--            SetActiveMeshVisible($("#selectMesh option:selected").val(), true);-->
-<!---->
-<!---->
-<!--            // console.log("Test: "+Quaternion.fromEuler(0,0,0));-->
-<!--        });</script>-->
-
-
-    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-
     <script src="application/scripts/ModelLoader.js"></script>
-    
-        <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
-<!--        <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
+    <!--        <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
     <script type="text/javascript">
         $(document).ready(function () {
+            LoadPhp_Navbar();
             LoadPhp_Homepage();
             LoadPhp_Model();
-            LoadPhp_Navbar();
         });
     </script>
 </head>
@@ -67,8 +52,6 @@
 <!--</div>-->
 <nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="navbarPHP">
 </nav>
-
-
 
 
 <!--Content swapping zone-->

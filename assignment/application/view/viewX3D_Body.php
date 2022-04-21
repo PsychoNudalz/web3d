@@ -6,6 +6,7 @@
             <x3d id='x3dScreen_x3d' showStat='true' showLog='true' showProgress='true ' runtimeEnabled="true">
                 <scene id="scene" DEF='scene'>
 
+
                     <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
                     <transform DEF='Model' id="MainModel">
                         <!--                    //Only modifying on the inline causes it to loads in multiple models for some reason-->
@@ -38,6 +39,8 @@
                                     intensity="2"></pointLight>
                     </transform>
                     <timeSensor DEF='Timer' cycleInterval='3' loop='true'></timeSensor>
+
+
 
                 </scene>
             </x3d>
@@ -88,4 +91,12 @@
             });
             // console.log("Test: "+Quaternion.fromEuler(0,0,0));
         });</script>
+
+    <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
+    <script type="text/javascript">
+        $(document).ready( function(){
+            $(#x3dScreen_x3d).ready();
+        });
+    </script>
+
 </div>
