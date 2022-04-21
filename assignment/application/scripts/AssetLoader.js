@@ -1,7 +1,13 @@
 function AssetLoader_LoadALL() {
+    AssetLoader_img("carousel_img_3", "HomepageBackground");
     AssetLoader_img("carousel_img_1", "CokeTruck");
     AssetLoader_img("carousel_img_2", "CokeBottles");
+    AssetLoader_imgToBackground("fixed", "HomepageBackground");
     AssetLoader_TextInfo("carousel_1", "Carousel_1");
+    AssetLoader_TextInfo("history", "History");
+    AssetLoader_TextInfo("card_1", "Coke_About");
+    AssetLoader_TextInfo("card_2", "Sprite_About");
+    AssetLoader_TextInfo("card_3", "Fanta_About");
 }
 1;
 function AssetLoader_img(id, assetName) {
@@ -17,6 +23,33 @@ function AssetLoader_img(id, assetName) {
             var imgElement = document.getElementById(id);
             if (imgElement != null) {
                 imgElement.setAttribute("src", json.Path);
+            }
+            else {
+                console.error("Can't find element: " + id);
+            }
+            console.log("Asset: " + assetName + " Loaded to: " + id);
+        }
+        else {
+            console.error("Can not load asset at: " + json.Path);
+        }
+    })
+        .fail(function (d, textStatus, error) {
+        console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
+    });
+}
+function AssetLoader_imgToBackground(id, assetName) {
+    console.log('Selected Asset:', assetName);
+    //GETTING MESH
+    var urlAsset = "application/model/getAsset.php?assetName=" + assetName;
+    console.log('URL to PHP Asset is:', urlAsset);
+    $.getJSON(urlAsset)
+        .done(function (json) {
+        console.log('Get asset: ', json.Path);
+        if (json.Path != null) {
+            // @ts-ignore
+            var imgElement = document.getElementById(id);
+            if (imgElement != null) {
+                imgElement.setAttribute("style", "background-image: url('" + json.Path + "')");
             }
             else {
                 console.error("Can't find element: " + id);
@@ -47,6 +80,7 @@ function AssetLoader_TextInfo(id, textName) {
             var imgElement = document.getElementById(id + "_img");
             if (imgElement != null) {
                 imgElement.setAttribute("src", json.Img_Path);
+                imgElement.setAttribute("href", json.Img_Path);
             }
             else {
                 console.error("Can't find element: " + id + "_img");
@@ -55,6 +89,7 @@ function AssetLoader_TextInfo(id, textName) {
             if (linkElement != null) {
                 linkElement.setAttribute("src", json.URL);
                 linkElement.setAttribute("action", json.URL);
+                linkElement.setAttribute("href", json.URL);
             }
             else {
                 console.error("Can't find element: " + id + "_url");

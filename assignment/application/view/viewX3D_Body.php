@@ -93,10 +93,6 @@
         });</script>
 
     <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
-    <script type="text/javascript">
-        $(document).ready( function(){
-            $(#x3dScreen_x3d).ready();
-        });
-    </script>
+
 
 </div>

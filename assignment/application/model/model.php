@@ -241,6 +241,7 @@ class Model
         try {
             $this->dbhandle->exec($insertCommand . "'CokeTruck','assets/img/ColaTruck.png'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'CokeBottles','assets/img/CokeBottles.png'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'HomepageBackground','assets/img/background.jpg'" . $insertCommand_end);
             return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());

@@ -10357,14 +10357,15 @@ figure {
   height: 100%;
   background-size: cover;
   background-position: center center;
-  -webkit-transform: translateZ(0);
+  webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: transform;
 }
 
 .carousel-inner img {
+  height: 80%;
   width: 100%;
-  height: auto;
+  object-fit: fill;
 }
 
 .carousel-caption {
