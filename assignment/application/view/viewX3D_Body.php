@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        <div class="col-sm-12 col-md-9 x3dScreen">
+        <div class="col-md-12 col-lg-9 x3dScreen">
             <x3d id='x3dScreen_x3d' showStat='true' showLog='true' showProgress='true ' runtimeEnabled="true">
                 <scene id="scene" DEF='scene'>
 
@@ -51,7 +51,7 @@
                 LoadPhp_x3dController();
             });
         </script>
-        <div id="x3dController" class=" col-sm-12  col-md-3">
+        <div id="x3dController" class=" col-md-12  col-lg-3">
 
         </div>
     </div>
@@ -59,40 +59,22 @@
 
     <script src="application/scripts/x3dSceneController.js"></script>
     <script src="application/scripts/x3dCameraController.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // console.log("Idont gking now")
-            InitialiseViewpoints();
-            LoadAllMesh();
-            SetAllMeshVisible(false);
-            // SetActiveMeshVisible("Can", true);
-            
-
-
-            $("#selectMesh").click(function () {
-                var selection = $(this).val();
-                if (selection != null) {
-
-                    // LoadMesh(selection);
-                    SetAllMeshVisible(false);
-                    // SetActiveMeshVisible(selection, true);
-                    SwitchActiveMesh(selection);
-                    LoadTexture($("#selectTexture option:selected").val());
-                }
-
-            });
-            $("#selectTexture").change(function () {
-                var selection = $(this).val();
-                // LoadMesh_HTML();
-                if (selection != null) {
-
-                    LoadTexture(selection);
-                }
-            });
-            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
-        });</script>
-
-    <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
 
 
 </div>
+<div class="row card_model">
+    <div id="card_model" class="card">
+        <div class="card-body">
+            <div id="title_centre" class="card-title drinksText"><h2 id="card_model_title"></h2>
+                <h2></h2></div>
+            <div id="subTitle_centre" class="card-subtitle drinksText"><h3 id="card_model_subtitle"></h3></div>
+            <div id="description_centre" class="card-text drinksText"><p id="card_model_content"></p></div>
+            <a id="card_model_url"target="_blank"
+               class="btn btn-primary btn-responsive" href="">Find out more ...</a>
+        </div>
+
+    </div>
+</div>
+
+
+<script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>

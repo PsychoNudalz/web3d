@@ -35,36 +35,35 @@
 
             <div class="btn-group ">
                 <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="ToggleWireFrame()">Toggle</a>
-                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="SetAllMeshVisible(false)">Toggle</a>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#selectMesh").click(function () {
-                var selection = $(this).val();
-                if (selection != null) {
-
-                    // LoadMesh(selection);
-                    SetAllMeshVisible(false);
-                    // SetActiveMeshVisible(selection, true);
-                    SwitchActiveMesh(selection);
-                    
-                    LoadTexture($("#selectTexture option:selected").val());
-                }
-
-            });
-            $("#selectTexture").change(function () {
-                var selection = $(this).val();
-                // LoadMesh_HTML();
-                if (selection != null) {
-
-                    LoadTexture(selection);
-                }
-            });
-            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
-        });</script>
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function () {-->
+<!--            $("#selectMesh").click(function () {-->
+<!--                var selection = $(this).val();-->
+<!--                if (selection != null) {-->
+<!---->
+<!--                    // LoadMesh(selection);-->
+<!--                    SetAllMeshVisible(false);-->
+<!--                    // SetActiveMeshVisible(selection, true);-->
+<!--                    SwitchActiveMesh(selection);-->
+<!--                    -->
+<!--                    LoadTexture($("#selectTexture option:selected").val());-->
+<!--                }-->
+<!---->
+<!--            });-->
+<!--            $("#selectTexture").change(function () {-->
+<!--                var selection = $(this).val();-->
+<!--                // LoadMesh_HTML();-->
+<!--                if (selection != null) {-->
+<!---->
+<!--                    LoadTexture(selection);-->
+<!--                }-->
+<!--            });-->
+<!--            // console.log("Test: "+Quaternion.fromEuler(0,0,0));-->
+<!--        });</script>-->
 
     <div>
         <h3 class="card-subtitle">Camera Controls</h3>
@@ -171,4 +170,42 @@
 
 
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // console.log("Idont gking now")
+            InitialiseViewpoints();
+            LoadAllMesh();
+            SetAllMeshVisible(false);
+            AssetLoader_TextInfo("card_model", "Coke_About");
+
+            // SetActiveMeshVisible("Can", true);
+
+
+
+            $("#selectMesh").click(function () {
+                var selection = $(this).val();
+                if (selection != null) {
+
+                    // LoadMesh(selection);
+                    SetAllMeshVisible(false);
+                    // SetActiveMeshVisible(selection, true);
+                    SwitchActiveMesh(selection);
+                    LoadTexture($("#selectTexture option:selected").val());
+                }
+
+            });
+            $("#selectTexture").change(function () {
+                var selection = $(this).val();
+                // LoadMesh_HTML();
+                if (selection != null) {
+
+                    LoadTexture(selection);
+                    AssetLoader_TextInfo("card_model", $("#selectTexture option:selected").val()+"_About");
+
+                }
+            });
+            // console.log("Test: "+Quaternion.fromEuler(0,0,0));
+        });</script>
+
 </div>

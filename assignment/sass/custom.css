@@ -10749,6 +10749,7 @@ figure {
 }
 .x3dScreen {
   width: 100%;
+  height: 90%;
 }
 
 /*--- Bootstrap Padding Fix --*/
