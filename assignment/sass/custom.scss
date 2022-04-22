@@ -1,55 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+//@font-face {
+//  font-family: cocaColaFont;
+//  src: url();
+//}
+
+
+$primary: (#111111);
+$secondary: (#c2c2c2);
+$red: (#d80214);
+$dark: (#000000);
+$shadowColour: (#222222);
 
 $theme-colors: (
-        "dark":#111111,
-        "primary":#222222,
-        "secondary":#505050,
+        "dark":$dark,
+        "primary":$primary,
+        "secondary":$secondary,
+        "red": $red,
         "orange":#FF6D13,
         "dark-orange":#be4a00
 );
 
 
-$itch: (#dd4a4a);
-$primary: (#FFFFFF);
-$dark-orange: (#be4a00);
-$orange: (#FF6D13);
-$light-orange: (#ff9741);
-
-$aspect-ratio: 9/16;
+$aspect-ratio: calc(9 / 16);
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 html, body {
   height: 100%;
   width: 100%;
-  font-family: 'Nanum Gothic Coding', monospace;
-  color: #000000;
+  font-family: 'Nova Square', 'Nanum Gothic Coding', sans-serif;
 }
 
-p, {
+nav, footer {
+  color: $dark;
+  background-color: $dark;
+}
+
+.footer {
+  display: block;
+  box-sizing: border-box;
+  height: 10%;
+}
+
+.footer a {
   color: $light;
 }
 
+
+.footer-text {
+
+}
+
 h1, h2, h3, h4, h5 {
-  color: $orange;
-  text-shadow: 0px 0px 20px $orange;
+  text-shadow: 0px 0px 20px $red;
 
 }
 
 b {
-  color: $orange;
-  text-shadow: 0rem 0rem 1rem $dark-orange;
+  color: $primary;
+  text-shadow: 0rem 0rem 1rem $shadowColour;
 }
 
+.text-shadow {
+  text-shadow: 0rem 0rem 1rem $shadowColour;
+
+}
+
+.text-shadow-primary {
+  text-shadow: 0rem 0rem 1rem $primary;
+
+}
+
+.text-shadow-red {
+  text-shadow: 0rem 0rem 1rem $red;
+
+}
+
+.nav-logo h1 {
+font-size: .7rem;
+}
+
+.nav-logo h2 {
+  font-size: .7rem;
+
+}
+
+.nav-logo h3 {
+  font-size: .5rem;
+
+}
+
+.nav-logo h4 {
+  font-size: .3rem;
+
+}
+
+
 .nav-link {
-  font-family: 'DotGothic16', monospace;
   font-size: 1.2em !important;
-  color: $orange;
+  color: $light;
 }
 
 .nav-link:hover {
-  text-shadow: 0px 0px 20px $dark-orange;
-  color: $light-orange;
+  text-shadow: 0px 0px 20px $secondary;
+  color: $light;
   font-size: 1.2em !important;
   font-weight: bold;
 
@@ -59,66 +115,31 @@ b {
 .dropdown-menu a {
   font-family: 'DotGothic16', monospace;
 
-  color: $orange;
+  color: $primary;
 }
 
 
 .dropdown-menu a:hover {
 
   color: $primary;
-  background-color: $orange;
+  background-color: $primary;
   font-weight: bold;
 }
 
 hr {
-  background-color: $orange;
+  background-color: $primary;
 
 }
 
 .carousel-caption h1, .carousel-caption h2, .carousel-caption h3 {
-  color: #ffffff;
-  text-shadow: 0px 0px 20px $dark-orange;
+  //text-shadow: 0px 0px 20px $shadowColour;
   padding-bottom: 1rem;
 
 }
 
-.btn-outline-orange:hover {
-  background-color: $orange;
+.btn-outline:hover {
+  background-color: $primary;
   color: white;
-}
-
-.btn-outline-itch {
-  color: $itch;
-  border-color: $itch;
-}
-
-.btn-outline-itch:hover {
-  background-color: $itch;
-  color: white;
-}
-
-.education-title h1 {
-  font-size: large;
-}
-
-.education-title h2 {
-  font-size: medium;
-
-}
-
-.education-scores h2 {
-  padding-top: -20px;
-}
-
-.education-entry h2 {
-  color: white;
-  text-shadow: 0px 0px 5px black;
-}
-
-.education-entry li {
-  color: $orange;
-  text-shadow: 0px 0px 20px $dark-orange;
-
 }
 
 
@@ -132,13 +153,13 @@ hr {
 }
 
 .navbar-toggler {
-  background-color: $orange !important;
+  background-color: $primary !important;
 
 }
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  //background-color: $orange !important;
+  //background-color: $primary !important;
 
 }
 
@@ -178,37 +199,22 @@ figure {
   will-change: transform;
 }
 
+.carousel-inner {
+  height: 40%;
+  width: 100%;
+}
+
 
 .carousel-inner img {
-  height: 80%;
+  height: 100%;
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .carousel-caption {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-}
-
-
-.carousel-caption h1 {
-  font-size: 400%;
-  text-transform: uppercase;
-
-
-}
-
-.carousel-caption h2 {
-  font-size: 200%;
-  font-weight: 500;
-
-}
-
-.carousel-caption h3 {
-  font-size: 150%;
-  font-weight: 500;
-
 }
 
 
@@ -239,17 +245,17 @@ figure {
 }
 
 .contact a {
-  color: $orange;
+  color: $primary;
 }
 
 .contact a:hover {
-  color: $orange;
-  text-shadow: 0px 0px 20px $dark-orange;
+  color: $primary;
+  text-shadow: 0px 0px 20px $shadowColour;
 }
 
 
 .social a:hover, .social-icons a:hover {
-  text-shadow: 0px 0px 20px $dark-orange;
+  text-shadow: 0px 0px 20px $shadowColour;
   //text-underline-mode: false;
   text-underline: $primary;
 }
@@ -263,24 +269,12 @@ figure {
 
 .fa {
   font-family: FontAwesome;
-
-
 }
 
 
 .fa-github {
-  color: #2a2a2a;
+  color: $dark;
   content: "\f09b";
-}
-
-.fa-itch-io {
-  content: url('https://api.iconify.design/fa-brands/itch-io.svg?color=%23dd4a4a');
-
-  color: $itch;
-}
-
-.fa-itch-io:hover {
-  content: url('https://api.iconify.design/fa-brands/itch-io.svg?color=white');
 }
 
 
@@ -289,242 +283,19 @@ figure {
   width: 2rem;
   height: 2rem;
   font-size: 2rem;
-  color: $orange;
+  color: $primary;
 }
 
-.footer h5 {
-  color: $dark-orange;
-  font-size: small;
-}
-
-.project-entry-zone ul {
-  list-style-type: none;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.project-entry {
-  border: 2px solid $orange !important;
-  border-radius: 16px;
-  font-size: 1rem;
-  padding: .5rem;
-  margin: .5rem;
-  box-shadow: 0px 0px 15px $dark-orange;
-
-}
-
-.project-entry img {
-  width: 100%;
-  height: auto;
-  border-color: $orange;
-  border-style: inset;
-  border-width: 2px;
-  box-shadow: 0px 0px 5px $dark-orange;
-  margin-bottom: .5rem;
-
-
-}
-
-.project-entry h1, .project-entry h2, .project-entry h3 {
-  width: 100%;
-}
-
-.project-entry hr {
-  width: 100%;
-}
-
-.project-entry a {
-  color: $orange;
-  font-size: x-large;
-  text-shadow: 0px 0px 20px $orange;
-
-}
-
-.project-entry a:hover {
-  text-decoration: none;
-  color: $light-orange;
-  text-shadow: 0px 0px 30px $orange;
-
-}
-
-.project-entry h1 {
-  font-size: x-large;
-  text-shadow: 0px 0px 40px $orange;
-
-}
-
-.project-entry h2 {
-  font-size: large;
-  text-shadow: 0px 0px 20px $orange;
-
-}
-
-.project-entry h3 {
-  font-size: large;
-  text-shadow: 0px 0px 5px $dark-orange;
-}
-
-
-.project-entry p {
-  font-size: large;
-}
-
-.project-deep-dive p {
-
-  text-align: justify !important;
-  text-align-last: center !important;
-}
-
-.project-deep-dive-summary p {
-  padding-left: 10%;
-  padding-right: 10%;
-
-}
-
-.team-members ul {
-
-  list-style-type: none;
-}
-
-.team-members li {
-
-  padding: 1rem;
-}
-
-.team-members a {
-  color: $orange;
-  text-shadow: 0px 0px 20px $orange;
-
-}
-
-.team-members a:hover {
-  text-decoration: none;
-  color: $light-orange;
-  text-shadow: 0px 0px 30px $orange;
-
-}
-
-.project-deep-dive-carousel {
-  width: 70%;
-  height: auto;
-  border-color: $orange;
-  border-style: inset;
-  border-width: 2px;
-  box-shadow: 0px 0px 5px $dark-orange;
-  margin-bottom: .5rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-.project-deep-dive-progress {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.project-deep-dive-progress h1, .project-deep-dive-progress h2, .project-deep-dive-progress h3 {
-  text-transform: uppercase;
-}
-
-
-.project-deep-dive-progress hr {
-  margin-left: -10%;
-  margin-right: -10%;
-}
-
-.project-deep-dive-progress h1, .project-deep-dive-progress h2 {
-  margin-bottom: 20px;
-}
-
-.project-deep-dive-progress p {
-  vertical-align: center;
-}
-
-.project-deep-dive-progress img {
-  width: 70%;
-  height: auto;
-  border-color: $orange;
-  border-style: inset;
-  border-width: 2px;
-  box-shadow: 0px 0px 5px $dark-orange;
-  margin-bottom: .5rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-.project-deep-dive-progress ol {
-  color: $orange;
-  text-shadow: 0px 0px 20px $orange;
-  margin-bottom: 2rem;
-}
-.project-deep-dive-progress li {
-  color: $orange;
-  text-shadow: 0px 0px 20px $orange;
-  margin-bottom: .1rem;
-}
-
-
-.project-deep-dive-progress-iframe {
-
-  border-color: $orange;
-  border-style: inset;
-  border-width: 2px;
-  box-shadow: 0px 0px 5px $dark-orange;
-  display: block;
-
-  margin-bottom: 1rem;
-}
-
-.project-deep-dive-progress-section h3 {
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-}
-
-.project-deep-dive-progress-section {
-  padding-left: -10%;
-  padding-right: -10%;
-}
-
-.project-deep-dive-progress-section img {
-  width: 100%;
-  height: auto;
-}
-
-.project-deep-dive-progress-section ul {
-  list-style-type: none;
-  padding-inline-start: 0px;
-
-}
-
-.project-deep-dive-progress-section li {
-  padding: 2rem;
-
-}
-
-.project-deep-dive-progress-section-entry {
-  list-style-type: none;
-  border: 2px solid $orange !important;
-  border-radius: 16px;
-  padding: 1rem;
-
-  box-shadow: 0px 0px 15px $dark-orange;
-}
-
-.project-deep-dive-progress-section-entry img {
-  margin-bottom: 2rem;
-}
 
 //3d model stuff
 
 .model-viewer {
-  border: 1px solid $orange !important;
+  border: 1px solid $primary !important;
   border-radius: 16px;
 }
 
 .model-viewer x3d {
-  border: 1px solid $orange !important;
+  border: 1px solid $primary !important;
   border-radius: 16px;
   width: 100%;
   height: 100%;
@@ -565,15 +336,15 @@ figure {
 }
 
 
-#gallery{
+#gallery {
   width: 50px;
 }
 
-#gallery_cell{
+#gallery_cell {
   padding: 0px;
   background: $dark;
-  border: 1px solid $orange;
-  box-shadow: 0px 0px 5px $dark-orange;
+  border: 1px solid $primary;
+  box-shadow: 0px 0px 5px $shadowColour;
 
   min-width: 100px;
   height: 80px;
@@ -581,22 +352,83 @@ figure {
   border-radius: 10px;
 }
 
-#image_thumbnail{
+#image_thumbnail {
   max-width: 100px;
   max-height: 80px;
 }
 
 
-@media (min-width: 576px) {
+@media (min-width: 0px) {
   .btn-responsive {
     font-size: 60%;
   }
+  .carousel-inner {
+    height: 40%;
+    width: 100%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.1rem;
+
+    font-weight: 500;
+
+  }
+
+  .carousel-caption h3 {
+    font-size: 1rem;
+
+    font-weight: 500;
+
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+  }
+
 
 }
+
 
 @media (min-width: 768px) {
   .btn-responsive {
     font-size: 90%;
+  }
+  .carousel-inner {
+    height: 40%;
+    width: 100%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
   }
 
 }
@@ -609,6 +441,33 @@ figure {
   .project-deep-dive-progress-iframe {
     width: 80%;
   }
+  .carousel-inner {
+    height: 60%;
+    width: 100%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+  }
+
+  .carousel-caption h2 {
+    font-size: 2rem;
+    font-weight: 500;
+
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
 }
 
@@ -617,6 +476,30 @@ figure {
   .project-deep-dive-progress-iframe {
     width: 70%;
   }
+  .carousel-inner {
+    height: 80%;
+    width: 100%;
+  }
+
+
+  .carousel-caption h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+
+  .carousel-caption h2 {
+    font-size: 3rem;
+    font-weight: 500;
+
+  }
+
+  .carousel-caption h3 {
+    font-size: 2rem;
+    font-weight: 500;
+
+  }
+
+
 }
 
 

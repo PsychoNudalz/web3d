@@ -7,6 +7,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--    fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+
 
     <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
 
@@ -43,7 +48,7 @@
         });
     </script>
 </head>
-<body class="bg-primary">
+<body class="bg-light">
 
 
 <!--<div id="navbarPHP">-->
@@ -65,6 +70,22 @@
 </div>
 
 
+<!--Footer-->
+<footer class="footer bg-dark">
+    <hr>
+    <div class="container-fluid padding text-light">
+        <div class=" float-left copyright">
+            <p><span class="align-baseline">&copy Web 3D Apps | <a href="#">Restyle</a> | <a
+                            href="#" >Reset</a></span></p>
+        </div>
+        <div class=" float-right social">
+            <a href="#"><i class="fa fa-brands fa-facebook-square fa-2x"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+<!--            <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>-->
+            <a href="#"><i class="fa fa-github fa-2x text-light"></i></a>
+        </div>
+    </div>
+</footer>
 </body>
 
 <!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->

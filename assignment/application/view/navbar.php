@@ -1,9 +1,16 @@
 <!--<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">-->
     <div class="container-fluid">
+        <div class="nav-logo row">
+            <h1>Coca</h1>
+            <h1>Cola</h1>
+            <h3>Journey</h3>
+            <h4>Refreshing the world, one story at a time</h4>
+        </div>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
             <span class="navbar-toggler-icon"> </span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse text-light" id="navbarResponsive">
             <ul class="navbar-nav ml-auto text-orange">
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="navHome">Home</a>
@@ -25,9 +32,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" id="navGitHub">GitHub </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">itch.io</a>
-                </li>
+
+
             </ul>
         </div>
     </div>

@@ -1,11 +1,14 @@
 function AssetLoader_LoadALL() {
-    AssetLoader_img("carousel_img_3", "HomepageBackground");
-
+    AssetLoader_img("carousel_img_3", "PinkCoke");
     AssetLoader_img("carousel_img_1", "CokeTruck");
     AssetLoader_img("carousel_img_2", "CokeBottles");
     AssetLoader_imgToBackground("fixed", "HomepageBackground");
     AssetLoader_TextInfo("carousel_1", "Carousel_1");
+    AssetLoader_TextInfo("carousel_2", "Carousel_2");
+    AssetLoader_TextInfo("carousel_3", "Carousel_3");
+    
     AssetLoader_TextInfo("history", "History");
+    
     AssetLoader_TextInfo("card_1", "Coke_About");
     AssetLoader_TextInfo("card_2", "Sprite_About");
     AssetLoader_TextInfo("card_3", "Fanta_About");

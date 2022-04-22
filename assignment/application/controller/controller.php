@@ -75,13 +75,6 @@ class Controller
         $this->apiGetData_Mesh("TestBox");
     }
 
-    function apiGetData()
-    {
-        $data = $this->model->dbGetData();
-        $this->load->view('view3DAppData', $data);
-    }
-
-
     function apiLoadImage()
     {
         // Get the brand data from the (this) Model using the dbGetBrand() meyhod in this Model class	
