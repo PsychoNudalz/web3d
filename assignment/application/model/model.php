@@ -110,7 +110,7 @@ class Model
             $this->dbhandle->exec($insertCommand . "'TestBox','assets/Model/TestBox/TestBox.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'Can','assets/Model/CokeCan/Can_New.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'Bottle','assets/Model/Bottle/Bottle_New.x3d'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'Glass','assets/Model/Glass/Glass.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Glass','assets/Model/Glass/Glass_New.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'TestScene','assets/Model/TestScene/TestScene.x3d'" . $insertCommand_end);
             return "X3D model data inserted successfully inside test1.db";
         } catch (PD0EXception $e) {
@@ -131,7 +131,7 @@ class Model
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','../CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'TestBox','Coke','../CokeCan/Can_Coke_2.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
 
@@ -154,7 +154,7 @@ class Model
             print new Exception($e->getMessage());
         }
         try {
-            $this->dbhandle->exec($insertCommand . "'Can','Coke','../CokeCan/Can_Coke.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','Coke','../CokeCan/Can_Coke_2.png','0.5 0.5 0.5','0.025','0.025 0.025 0.025'" . $insertCommand_end);
 
         } catch (PD0EXception $e) {
             print new Exception($e->getMessage());

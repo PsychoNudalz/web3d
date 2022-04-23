@@ -85,7 +85,7 @@ function AssetLoader_TextInfo(id, textName) {
                 imgElement.setAttribute("href", json.Img_Path);
             }
             else {
-                console.error("Can't find element: " + id + "_img");
+                console.warn("Can't find element: " + id + "_img");
             }
             var linkElement = document.getElementById(id + "_url");
             if (linkElement != null) {
@@ -94,7 +94,7 @@ function AssetLoader_TextInfo(id, textName) {
                 linkElement.setAttribute("href", json.URL);
             }
             else {
-                console.error("Can't find element: " + id + "_url");
+                console.warn("Can't find element: " + id + "_url");
             }
             // AddInnerHtml(id+"_URL",json.Content);
         }
@@ -113,7 +113,7 @@ function AddInnerHtml(id, text) {
         console.log("Asset: " + text + " Loaded to: " + id);
     }
     else {
-        console.error("Can't find element: " + id);
+        console.warn("Can't find element: " + id);
     }
 }
 //# sourceMappingURL=AssetLoader.js.map

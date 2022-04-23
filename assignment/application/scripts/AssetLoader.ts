@@ -95,7 +95,7 @@ function AssetLoader_TextInfo(id: string, textName: string) {
                     imgElement.setAttribute("href", json.Img_Path);
 
                 } else {
-                    console.error("Can't find element: " + id+"_img");
+                    console.warn("Can't find element: " + id+"_img");
                 }
                 var linkElement = document.getElementById(id+"_url");
                 if (linkElement != null) {
@@ -105,7 +105,7 @@ function AssetLoader_TextInfo(id: string, textName: string) {
 
 
                 } else {
-                    console.error("Can't find element: " + id+"_url");
+                    console.warn("Can't find element: " + id+"_url");
                 }
 
 
@@ -128,6 +128,6 @@ function AddInnerHtml(id: string, text: string) {
         console.log("Asset: " + text + " Loaded to: " + id);
 
     } else {
-        console.error("Can't find element: " + id);
+        console.warn("Can't find element: " + id);
     }
 }

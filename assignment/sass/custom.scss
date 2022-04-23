@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ballet&family=Cookie&family=Lavishly+Yours&display=swap');
 //@font-face {
 //  font-family: cocaColaFont;
 //  src: url();
@@ -78,24 +79,48 @@ b {
 
 }
 
+.text-shadow-light{
+  text-shadow: 0rem 0rem 1rem $light;
+
+}
+
+
 .nav-logo h1 {
-font-size: .7rem;
+  font-size: 3rem;
+  display:inline;
+  font-family: 'Cookie', cursive;
+  text-shadow: none;
 }
 
 .nav-logo h2 {
-  font-size: .7rem;
+  display:inline;
+  font-size: 3rem;
+  font-family: 'Lavishly Yours', cursive;
+  text-shadow: none;
 
 }
 
 .nav-logo h3 {
-  font-size: .5rem;
+  display:inline;
+  font-size: 2rem;
+  font-family: 'Ballet', cursive;
+  text-shadow: none;
 
 }
 
 .nav-logo h4 {
-  font-size: .3rem;
+  font-size: .7rem;
+  text-shadow: none;
 
 }
+
+.nav-logo a:hover,.nav-logo h1:hover,.nav-logo h2:hover,.nav-logo h3:hover{
+  font-weight: bold;
+  color: $red;
+  text-shadow: 0rem 0rem 1rem $red!important;
+  text-decoration: none;
+}
+
 
 
 .nav-link {
@@ -104,7 +129,7 @@ font-size: .7rem;
 }
 
 .nav-link:hover {
-  text-shadow: 0px 0px 20px $secondary;
+  text-shadow: 0px 0px 15px $secondary;
   color: $light;
   font-size: 1.2em !important;
   font-weight: bold;
@@ -113,16 +138,15 @@ font-size: .7rem;
 }
 
 .dropdown-menu a {
-  font-family: 'DotGothic16', monospace;
-
-  color: $primary;
+  color: $light;
 }
 
 
 .dropdown-menu a:hover {
 
-  color: $primary;
+  color: $red;
   background-color: $primary;
+  text-shadow: 0rem 0rem 1rem $red !important;
   font-weight: bold;
 }
 
@@ -368,12 +392,12 @@ figure {
   }
 
   .carousel-caption h1 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     text-transform: uppercase;
   }
 
   .carousel-caption h2 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 
     font-weight: 500;
 
@@ -409,7 +433,7 @@ figure {
   }
 
   .carousel-caption h1 {
-    font-size: 1.7rem;
+    font-size: 2rem;
     text-transform: uppercase;
   }
 
@@ -447,7 +471,7 @@ figure {
   }
 
   .carousel-caption h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
   }
 

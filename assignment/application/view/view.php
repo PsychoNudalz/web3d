@@ -60,7 +60,7 @@
 
 
 <!--Content swapping zone-->
-<div class="container-fluid padding ">
+<div class="container-fluid ">
     <div id="HOMEPAGE">
 
     </div>
