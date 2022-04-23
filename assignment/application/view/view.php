@@ -40,13 +40,7 @@
     <script src="application/scripts/ModelLoader.js"></script>
     <!--        <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            LoadPhp_Navbar();
-            LoadPhp_Homepage();
-            LoadPhp_Model();
-        });
-    </script>
+
 </head>
 <body class="bg-light">
 
@@ -87,7 +81,13 @@
     </div>
 </footer>
 </body>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        LoadPhp_Navbar();
+        LoadPhp_Homepage();
+        LoadPhp_Model();
+    });
+</script>
 <!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
 </html>

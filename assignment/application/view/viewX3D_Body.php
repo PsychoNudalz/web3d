@@ -45,15 +45,8 @@
                 </scene>
             </x3d>
         </div>
-        <script src="application/scripts/PageLoader.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                LoadPhp_x3dController();
-            });
-        </script>
-        <div id="x3dController" class=" col-md-12  col-lg-3">
-
-        </div>
+        
+        <div id="x3dController" class=" col-md-12  col-lg-3"></div>
     </div>
 
 
@@ -76,5 +69,12 @@
     </div>
 </div>
 
+
+<script src="application/scripts/PageLoader.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        LoadPhp_x3dController();
+    });
+</script>
 
 <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>

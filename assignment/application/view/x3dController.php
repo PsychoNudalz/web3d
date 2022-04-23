@@ -31,10 +31,13 @@
         </div>
         <br>
         <div class="camera-btns">
-            <p class="card-text">Change between viewing modes</p>
 
             <div class="btn-group ">
-                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="ToggleWireFrame()">Toggle</a>
+                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="ToggleWireFrame()">Toggle viewing modes</a>
+            </div>
+
+            <div class="btn-group ">
+                <a href="#" class="btn btn-orange btn-responsive camera-btn" onclick="ToggleTransparency()">Toggle transparency</a>
             </div>
         </div>
     </div>
