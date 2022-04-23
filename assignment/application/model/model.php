@@ -108,8 +108,8 @@ class Model
         $insertCommand_end = ");";
         try {
             $this->dbhandle->exec($insertCommand . "'TestBox','assets/Model/TestBox/TestBox.x3d'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'Can','assets/Model/CokeCan/Can.x3d'" . $insertCommand_end);
-            $this->dbhandle->exec($insertCommand . "'Bottle','assets/Model/Bottle/Bottle.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Can','assets/Model/CokeCan/Can_New.x3d'" . $insertCommand_end);
+            $this->dbhandle->exec($insertCommand . "'Bottle','assets/Model/Bottle/Bottle_New.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'Glass','assets/Model/Glass/Glass.x3d'" . $insertCommand_end);
             $this->dbhandle->exec($insertCommand . "'TestScene','assets/Model/TestScene/TestScene.x3d'" . $insertCommand_end);
             return "X3D model data inserted successfully inside test1.db";
@@ -236,7 +236,7 @@ class Model
 
     public function dbInsertData_AssetTable()
     {
-        $insertCommand = "INSERT INTO AssetTable(AssetName,PathName) VALUES (";
+        $insertCommand = 'INSERT INTO AssetTable(AssetName,PathName) VALUES (';
         $insertCommand_end = ");";
         try {
             $this->dbhandle->exec($insertCommand . "'CokeTruck','assets/img/ColaTruck.png'" . $insertCommand_end);
