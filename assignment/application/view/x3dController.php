@@ -84,18 +84,20 @@
 
                 <h3 class="card-subtitle">Lighting Controls</h3>
                 <p class="card-text">Change Light Position </p>
-                <form>
-                    <label>Amount to Move: </label>
-                    <input type="number" id="x3d_LightAddPos" placeholder="50" value="50" step="50" min="0">
-                    <script>
-                        $(document).keypress(
-                            function (event) {
-                                if (event.which == '13') {
-                                    event.preventDefault();
-                                }
-                            });
-                    </script>
-                </form>
+                <div class="col-lg-12">
+                    <form>
+                        <label>Amount to Move: </label>
+                        <input type="number" id="x3d_LightAddPos" placeholder="50" value="50" step="50" min="0">
+                        <script>
+                            $(document).keypress(
+                                function (event) {
+                                    if (event.which == '13') {
+                                        event.preventDefault();
+                                    }
+                                });
+                        </script>
+                    </form>
+                </div>
                 <div class="lighting-move-btns ">
                     <div class="col-lg-12 col-xl-6 btn-group ">
                         <a href="#" class="btn btn-orange btn-responsive camera-btn"
@@ -115,7 +117,7 @@
                         <a href="#" class="btn btn-orange btn-responsive camera-btn"
                            onclick="x3dPointLight_MoveLight_z_neg();">Backward</a>
                     </div>
-                    <div class="btn-group">
+                    <div class="col-lg-12 col-xl-6 btn-group">
                         <a href="#" class="btn btn-orange btn-responsive camera-btn"
                            onclick="x3dPointLight_SetLightPos(2000,500,2000);">RESET</a>
                     </div>
