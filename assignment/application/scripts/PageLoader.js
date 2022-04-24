@@ -8,6 +8,8 @@ function LoadPhp_Model() {
 }
 function LoadPhp_x3dController() {
     var url = "index.php?apiLoadPage_x3dController";
+    // @ts-ignore
+    document.getElementById("x3dController").innerHTML = "";
     $("#x3dController").load(url);
 }
 function LoadPhp_Navbar() {

@@ -10405,7 +10405,7 @@ b {
 }
 
 .nav-logo h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   display: inline;
   font-family: "Cookie", cursive;
   text-shadow: none;
@@ -10413,14 +10413,14 @@ b {
 
 .nav-logo h2 {
   display: inline;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: "Lavishly Yours", cursive;
   text-shadow: none;
 }
 
 .nav-logo h3 {
   display: inline;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: "Ballet", cursive;
   text-shadow: none;
 }
@@ -10663,6 +10663,20 @@ figure {
   max-height: 80px;
 }
 
+.x3dScreen {
+  width: 100%;
+  border: 1px solid #111111;
+}
+
+.x3d-btns {
+  background-color: #c2c2c2;
+  border: 1px solid #111111;
+  box-shadow: 0px 0px 5px #222222;
+  text-align: center;
+  horiz-align: center;
+  width: 100%;
+}
+
 @media (min-width: 0px) {
   .btn-responsive {
     font-size: 60%;
@@ -10698,6 +10712,11 @@ figure {
     transform: translateY(-50%);
   }
 }
+@media (min-width: 576px) {
+  .x3dScreen {
+    height: 500px;
+  }
+}
 @media (min-width: 768px) {
   .btn-responsive {
     font-size: 90%;
@@ -10727,6 +10746,10 @@ figure {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
+  }
+
+  .x3dScreen {
+    height: 650px;
   }
 }
 @media (min-width: 992px) {
@@ -10763,6 +10786,10 @@ figure {
     top: 50%;
     transform: translateY(-50%);
   }
+
+  .x3dScreen {
+    height: 800px;
+  }
 }
 @media (min-width: 1200px) {
   .project-deep-dive-progress-iframe {
@@ -10788,12 +10815,11 @@ figure {
     font-size: 2rem;
     font-weight: 500;
   }
-}
-.x3dScreen {
-  width: 100%;
-  height: 90%;
-}
 
+  .x3dScreen {
+    height: 800px;
+  }
+}
 /*--- Bootstrap Padding Fix --*/
 [class*=col-] {
   padding: 1rem;

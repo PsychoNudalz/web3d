@@ -86,7 +86,7 @@ b {
 
 
 .nav-logo h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   display:inline;
   font-family: 'Cookie', cursive;
   text-shadow: none;
@@ -94,7 +94,7 @@ b {
 
 .nav-logo h2 {
   display:inline;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'Lavishly Yours', cursive;
   text-shadow: none;
 
@@ -102,7 +102,7 @@ b {
 
 .nav-logo h3 {
   display:inline;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: 'Ballet', cursive;
   text-shadow: none;
 
@@ -351,6 +351,10 @@ figure {
   color: rgb(3, 3, 3);
 }
 
+.btn-script-zone{
+  
+}
+
 
 .btn-responsive {
   padding: 6px 10px;
@@ -381,6 +385,23 @@ figure {
   max-height: 80px;
 }
 
+
+
+.x3dScreen {
+  //background-image: url(../img/Export1.png);
+  width: 100%;
+  border: 1px solid $primary;
+
+}
+
+.x3d-btns{
+  background-color: $secondary;
+  border: 1px solid $primary;
+  box-shadow: 0px 0px 5px $shadowColour;
+  text-align: center;
+  horiz-align: center;
+  width: 100%;
+}
 
 @media (min-width: 0px) {
   .btn-responsive {
@@ -422,6 +443,13 @@ figure {
 
 }
 
+@media (min-width: 576px) {
+  .x3dScreen {
+    //background-image: url(../img/Export1.png);
+    height: 500px;
+  }
+}
+
 
 @media (min-width: 768px) {
   .btn-responsive {
@@ -453,6 +481,11 @@ figure {
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
+  }
+
+  .x3dScreen {
+    //background-image: url(../img/Export1.png);
+    height: 650px;
   }
 
 }
@@ -492,6 +525,10 @@ figure {
     top: 50%;
     transform: translateY(-50%);
   }
+  .x3dScreen {
+    //background-image: url(../img/Export1.png);
+    height: 800px;
+  }
 
 }
 
@@ -522,16 +559,14 @@ figure {
     font-weight: 500;
 
   }
-
+  .x3dScreen {
+    //background-image: url(../img/Export1.png);
+    height: 800px;
+  }
 
 }
 
 
-.x3dScreen {
-  //background-image: url(../img/Export1.png);
-  width: 100%;
-  height: 90%;
-}
 
 //.fab, .far {
 //  font-weight: 400;
