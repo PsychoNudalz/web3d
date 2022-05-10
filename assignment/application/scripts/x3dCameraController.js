@@ -15,6 +15,7 @@ var BackTransform = new CameraTransform([offsetDist, yHeight,], [0, 1.5708, 0, 1
 var LeftTransform = new CameraTransform([0, yHeight, offsetDist], [0, 0, 0, 1.5708]);
 var RightTransform = new CameraTransform([0, yHeight, -offsetDist], [0, 1.5708, 0, 3.14159]);
 var TopTransform = new CameraTransform([0, 2000, 0], [-1.5708, 0, 0, 1.5708]);
+var BottomTransform = new CameraTransform([0, -1000, 0], [1.5708, 0, 0, 1.5708]);
 var previousViewpoint = "Default";
 var previousPreviousViewpoint = "";
 //
@@ -31,8 +32,9 @@ function InitialiseViewpoints() {
     console.log("Adding in Viewpoints");
     var container = document.getElementById("x3d_Camera");
     if (container != null) {
-        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Front", FrontTransform);
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Top", TopTransform);
+        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Bottom", BottomTransform);
+        container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Front", FrontTransform);
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Back", BackTransform);
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Left", LeftTransform);
         container.innerHTML += CameraTransformToViewpoint("x3d_Camera_VP_Right", RightTransform);

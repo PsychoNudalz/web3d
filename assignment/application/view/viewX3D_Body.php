@@ -1,9 +1,9 @@
-<div class=" padding ">
+<div class=" ">
 
     <div class=" container-fluid row">
 
-        <div class="col-md-12 col-lg-9 ">
-            <h2>Model Viewer</h2>
+        <div class="col-md-12 col-lg-9 pl-0">
+            <h2 class="text-red">Model Viewer</h2>
             <br>
             <div class="x3dScreen">
 

@@ -33,7 +33,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" id="navGitHub">GitHub </a>
+                <a class="nav-link" href="https://github.com/PsychoNudalz/web3d/" id="navGitHub">GitHub </a>
             </li>
 
 

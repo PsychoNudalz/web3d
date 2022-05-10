@@ -58,7 +58,13 @@
     <div id="HOMEPAGE">
 
     </div>
+    <div id="ABOUT">
+
+    </div>
     <div id="MODEL">
+
+    </div>
+    <div id="DEEPER">
 
     </div>
 </div>

@@ -5,6 +5,15 @@ function ChangeToModel() {
     ResetPages();
     $('#HOMEPAGE').hide();
     $('#MODEL').show();
+    var selection = $("#selectMesh").val();
+    if (selection != null) {
+        // LoadMesh(selection);
+        SetAllMeshVisible(false);
+        // SetActiveMeshVisible(selection, true);
+        // @ts-ignore
+        SwitchActiveMesh(selection);
+        LoadTexture($("#selectTexture option:selected").val());
+    }
     console.log("Click model");
 }
 function ResetPages() {
@@ -30,14 +39,17 @@ function selectPage() {
     });
     $('#navModel_Can').click(function () {
         selectedPage = true;
+        $("#selectMesh").val("Can");
         ChangeToModel();
     });
     $('#navModel_Bottle').click(function () {
         selectedPage = true;
+        $("#selectMesh").val("Bottle");
         ChangeToModel();
     });
     $('#navModel_Glass').click(function () {
         selectedPage = true;
+        $("#selectMesh").val("Glass");
         ChangeToModel();
     });
 }
