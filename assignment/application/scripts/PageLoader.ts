@@ -9,13 +9,20 @@ function LoadPhp_Model() {
     $("#MODEL").load(url);
 
 }
+function LoadPhp_About() {
+    var url = "index.php?apiLoadPage_About";
+    $("#ABOUT").load(url);
+}
+function LoadPhp_Deeper() {
+    var url = "index.php?apiLoadPage_Deeper";
+    $("#DEEPER").load(url);
+}
 
 function LoadPhp_x3dController() {
     var url: string = "index.php?apiLoadPage_x3dController";
     // @ts-ignore
     document.getElementById("x3dController").innerHTML="";
     $("#x3dController").load(url);
-
 }
 
 function LoadPhp_Navbar(){

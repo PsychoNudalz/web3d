@@ -1,4 +1,4 @@
-<div id="slides" class="carousel slide" data-ride="carousel">
+<div id="slides" class="carousel slide rounded" data-ride="carousel">
     <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>
         <li data-target="#slides" data-slide-to="1"></li>
@@ -83,17 +83,15 @@
 
 <!--- Fixed background -->
 <figure>
-    <div class="fixed-wrap">
-        <h1>Test</h1>
-        <div id="fixed" style="">
-
+    <div class="fixed-wrap rounded">
+        <div id="fixed-background" style="">
         </div>
     </div>
 </figure>
 
 
 <!--cards-->
-<div class="row">
+<div class="row pt-1 pl-3 pr-3 rounded">
     <div class="col-sm-12 col-md-4">
 
         <div id="card_1" class="card bg-secondary">
@@ -151,6 +149,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        AssetLoader_LoadALL();
+        AssetLoader_LoadALL_Homepage();
     });
 </script>

@@ -45,8 +45,9 @@ class Controller
         $data = $this->model->dbInsertData();
         $this->load->view('viewMessage', $data);
     }
-    
-    function apiResetInsertData(){
+
+    function apiResetInsertData()
+    {
         $this->apiResetTable();
         $this->apiInsertData();
     }
@@ -59,7 +60,7 @@ class Controller
 
     function apiGetData_ModelTest()
     {
-        
+
         $data = $this->model->dbGetData_ModelAll_Test();
         $this->load->view('viewMessapiGetData_ModelTestage', $data);
     }
@@ -85,11 +86,14 @@ class Controller
         // It is a separate model illustrating that you can have many models
         $this->load->view('viewX3D');
     }
-    
-    function apiLoadPage_Homepage(){
+
+    function apiLoadPage_Homepage()
+    {
         $this->apiLoadPage("homepage");
     }
-    function apiLoadPage_Model(){
+
+    function apiLoadPage_Model()
+    {
         $this->apiLoadPage("viewX3D_Body");
     }
 
@@ -97,13 +101,25 @@ class Controller
     {
         $this->apiLoadPage("x3dController");
     }
+
     function apiLoadPage_navbarPHP()
     {
         $this->apiLoadPage("navbar");
     }
-    
-    function apiLoadPage($pageName){
-        ChromePhp::log("Loading Page: ".$pageName);
+
+    function apiLoadPage_About()
+    {
+        $this->apiLoadPage("about");
+    }
+
+    function apiLoadPage_Deeper()
+    {
+        $this->apiLoadPage("deeper");
+    }
+
+    function apiLoadPage($pageName)
+    {
+        ChromePhp::log("Loading Page: " . $pageName);
         $this->load->view($pageName);
     }
 

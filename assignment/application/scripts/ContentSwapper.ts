@@ -26,6 +26,7 @@ function ResetPages() {
     $('#HOMEPAGE').show();
     $('#ABOUT').hide();
     $('#MODEL').hide();
+    $('#DEEPER').hide();
 }
 
 function selectPage() {
@@ -51,18 +52,29 @@ function selectPage() {
         $('#ABOUT').show();
 
     });
+    $('#navDeeper').click(function () {
+        selectedPage = true;
+        ResetPages();
+
+        $('#HOMEPAGE').hide();
+
+        $('#DEEPER').show();
+
+    });
 
     $('#navModel_Can').click(function () {
         selectedPage = true;
         $("#selectMesh").val("Can");
         ChangeToModel();
-    });    $('#navModel_Bottle').click(function () {
+    });
+    $('#navModel_Bottle').click(function () {
 
         selectedPage = true;
         $("#selectMesh").val("Bottle");
 
         ChangeToModel();
-    });    $('#navModel_Glass').click(function () {
+    });
+    $('#navModel_Glass').click(function () {
         selectedPage = true;
         $("#selectMesh").val("Glass");
 

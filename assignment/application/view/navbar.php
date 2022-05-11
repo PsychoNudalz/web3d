@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#" id="navAbout">About</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-center " href="#" id="navDeeper">Deeper Understanding</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" data-toggle="dropdown">
                     Model
@@ -33,7 +36,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/PsychoNudalz/web3d/" id="navGitHub">GitHub </a>
+                <a class="nav-link" href="https://github.com/PsychoNudalz/web3d/" id="navGitHub" target="_blank">GitHub </a>
             </li>
 
 

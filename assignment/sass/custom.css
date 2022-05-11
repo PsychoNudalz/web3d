@@ -11283,7 +11283,7 @@ b {
 }
 
 hr {
-  background-color: #111111;
+  background-color: #d80214;
 }
 
 .carousel-caption h1, .carousel-caption h2, .carousel-caption h3 {
@@ -11332,7 +11332,7 @@ figure {
   height: 100%;
 }
 
-#fixed {
+#fixed, #fixed-background, #fixed-background-about, #fixed-background-deeper {
   position: fixed;
   display: block;
   top: 0;
@@ -11455,7 +11455,7 @@ figure {
 
 .camera-font:hover {
   font-weight: 700;
-  color: #030303;
+  color: rgb(3, 3, 3);
 }
 
 .btn-responsive {
@@ -11487,13 +11487,14 @@ figure {
 
 .x3dScreen {
   width: 100%;
-  border: 1px solid #111111;
+  border: 1px solid #d80214;
+  box-shadow: 0px 0px 5px #d80214;
 }
 
 .x3d-btns {
   background-color: #c2c2c2;
-  border: 1px solid #111111;
-  box-shadow: 0px 0px 5px #222222;
+  border: 1px solid #d80214;
+  box-shadow: 0px 0px 5px #d80214;
   text-align: center;
   horiz-align: center;
   width: 100%;

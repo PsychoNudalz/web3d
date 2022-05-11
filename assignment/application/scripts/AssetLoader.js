@@ -1,8 +1,8 @@
-function AssetLoader_LoadALL() {
+function AssetLoader_LoadALL_Homepage() {
     AssetLoader_img("carousel_img_3", "PinkCoke");
     AssetLoader_img("carousel_img_1", "CokeTruck");
     AssetLoader_img("carousel_img_2", "CokeBottles");
-    AssetLoader_imgToBackground("fixed", "HomepageBackground");
+    AssetLoader_imgToBackground("fixed-background", "HomepageBackground");
     AssetLoader_TextInfo("carousel_1", "Carousel_1");
     AssetLoader_TextInfo("carousel_2", "Carousel_2");
     AssetLoader_TextInfo("carousel_3", "Carousel_3");
@@ -11,7 +11,13 @@ function AssetLoader_LoadALL() {
     AssetLoader_TextInfo("card_2", "Sprite_About");
     AssetLoader_TextInfo("card_3", "Fanta_About");
 }
-1;
+function AssetLoader_LoadALL_About() {
+    AssetLoader_imgToBackground("fixed-background-about", "AboutBackground");
+    AssetLoader_TextInfo("about_1", "About_1");
+    AssetLoader_TextInfo("about_2", "About_2");
+    AssetLoader_TextInfo("about_model", "About_Models");
+    AssetLoader_TextInfo("transparency_reason", "Transparency_Reason");
+}
 function AssetLoader_img(id, assetName) {
     console.log('Selected Asset:', assetName);
     //GETTING MESH

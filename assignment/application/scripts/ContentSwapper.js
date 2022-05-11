@@ -20,6 +20,7 @@ function ResetPages() {
     $('#HOMEPAGE').show();
     $('#ABOUT').hide();
     $('#MODEL').hide();
+    $('#DEEPER').hide();
 }
 function selectPage() {
     var selectedPage = false;
@@ -36,6 +37,12 @@ function selectPage() {
         ResetPages();
         $('#HOMEPAGE').hide();
         $('#ABOUT').show();
+    });
+    $('#navDeeper').click(function () {
+        selectedPage = true;
+        ResetPages();
+        $('#HOMEPAGE').hide();
+        $('#DEEPER').show();
     });
     $('#navModel_Can').click(function () {
         selectedPage = true;
