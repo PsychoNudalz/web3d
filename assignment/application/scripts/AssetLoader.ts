@@ -29,6 +29,12 @@ function AssetLoader_LoadALL_About() {
     AssetLoader_TextInfo("about_2", "About_2");
     AssetLoader_TextInfo("about_model", "About_Models");
     AssetLoader_TextInfo("transparency_reason", "Transparency_Reason");
+    AssetLoader_TextInfo("SoO", "SoO");
+    AssetLoader_TextInfo("libraries", "Libraries");
+    AssetLoader_List("libraries-ol", "Libraries");
+    AssetLoader_TextInfo("reference", "References");
+    AssetLoader_List("reference-ol", "References");
+
 }
 
 function AssetLoader_LoadALL_Deeper() {
@@ -136,7 +142,7 @@ function AssetLoader_TextInfo(id: string, textName: string) {
                 // AddInnerHtml(id+"_URL",json.Content);
 
             } else {
-                console.error("Json is null");
+                console.error(textName + " Json is null");
             }
         })
         .fail(function (d, textStatus, error) {
@@ -156,16 +162,25 @@ function AssetLoader_List(id: string, listName: string) {
             var listElement = document.getElementById(id);
             // AddInnerHtml(id + "_content", json.Content);
             var innerString: string = '';
-            var temp: string =json.Content;
-            var content: string[] = temp.split("/");
+            var temp: string = json.Content;
+            var content: string[] = temp.split("\n");
+            var splitHyper: string[] = [];
             content.forEach(function (value) {
-                innerString += "<li>" + value + "</li>";
+                splitHyper = value.split("https://");
+                temp = "<p class='mb-0'>" + value + "</p>";
+                if (splitHyper[0].length > 0) {
+                    if (splitHyper.length > 1) {
+                        splitHyper = splitHyper[1].split(" [Accessed: ");
+                        temp += "<a target=\"_blank\" href=\"https://"+splitHyper[0]+"\"class=\"mb-2 btn btn-red btn-responsive\">To Page...</a>"
+                    }
+                    innerString += "<li>" + temp + "</li>";
+                }
             });
             AddInnerHtml(id, innerString);
-            if (json != null){
+            if (json != null) {
 
-            }else{
-                console.error("Json is null");
+            } else {
+                console.error(listName + " Json is null");
             }
         })
         .fail(function (d, textStatus, error) {

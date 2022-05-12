@@ -84,8 +84,7 @@
     <hr>
     <div class="container-fluid padding text-light">
         <div class=" float-left copyright">
-            <p><span class="align-baseline">&copy Web 3D Apps | <a href="#">Restyle</a> | <a
-                            href="#" >Reset</a></span></p>
+            <p><span class="align-baseline">&copy Web 3D Apps </a></span></p>
         </div>
         <div class=" float-right social">
             <a href="#"><i class="fa fa-brands fa-facebook-square fa-2x"></i></a>
