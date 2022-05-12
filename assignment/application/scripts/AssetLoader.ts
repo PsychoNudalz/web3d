@@ -2,6 +2,12 @@ function AssetLoader_LoadALL_Homepage() {
     AssetLoader_img("carousel_img_3", "PinkCoke");
     AssetLoader_img("carousel_img_1", "CokeTruck");
     AssetLoader_img("carousel_img_2", "CokeBottles");
+
+    AssetLoader_img("card_1_fancybox", "CokeRender");
+    AssetLoader_img("card_2_fancybox", "SpriteRender");
+    AssetLoader_img("card_3_fancybox", "FantaRender");
+
+
     AssetLoader_imgToBackground("fixed-background", "HomepageBackground");
     AssetLoader_TextInfo("carousel_1", "Carousel_1");
     AssetLoader_TextInfo("carousel_2", "Carousel_2");
@@ -46,6 +52,7 @@ function AssetLoader_img(id: string, assetName: string) {
                 var imgElement = document.getElementById(id);
                 if (imgElement != null) {
                     imgElement.setAttribute("src", json.Path);
+                    imgElement.setAttribute("href", json.Path);
 
                 } else {
                     console.error("Can't find element: " + id);

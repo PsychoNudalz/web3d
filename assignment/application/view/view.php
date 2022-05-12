@@ -15,8 +15,13 @@
 
     <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="node_modules/fancybox/dist/css/jquery.fancybox.css">
+
     <link rel="stylesheet" href="sass/custom.css">
+    
+    
 
     <link rel='stylesheet' type='text/css' href='node_modules/x3dom/x3dom.css'>
     <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
@@ -27,6 +32,10 @@
     <script src="node_modules/popper.js/dist/popper.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
+
+
 
 
     <script src="application/scripts/NavbarLoader.js"></script>
@@ -94,8 +103,10 @@
         LoadPhp_Model();
         LoadPhp_About();
         LoadPhp_Deeper();
+
     });
 </script>
+
 <!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
 
 </html>

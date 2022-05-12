@@ -95,8 +95,12 @@
     <div class="col-sm-12 col-md-4">
 
         <div id="card_1" class="card bg-secondary">
-            <img id="card_1_img" class="card-img-top img-fluid img-thumbnail"
+            <a class ="fancybox" id="card_1_fancybox" href="" data-fancybox data-caption="Test">
+                
+                <img id="card_1_img" class="card-img-top img-fluid img-thumbnail"
                  src="">
+            </a>
+
             <div class="card-body">
                 <div id="title_centre" class="card-title text-light text-shadow-primary"><h2 id="card_1_title"></h2>
                 </div>
@@ -112,9 +116,10 @@
     <div class="col-sm-12 col-md-4">
 
         <div id="card_2 " class="card bg-secondary">
-            <img id="card_2_img" class="card-img-top img-fluid img-thumbnail"
-                 src="">
-
+            <a class ="fancybox" id="card_2_fancybox" href="" data-fancybox data-caption="Test">
+                <img id="card_2_img" class="card-img-top img-fluid img-thumbnail"
+                     src="">
+            </a>
             <div class="card-body">
                 <div id="title_centre" class="card-title text-light text-shadow-primary"><h2 id="card_2_title"></h2>
                 </div>
@@ -129,8 +134,10 @@
     <div class="col-sm-12 col-md-4">
 
         <div id="card_3" class="card bg-secondary">
-            <img id="card_3_img" class="card-img-top img-fluid img-thumbnail"
-                 src="">
+            <a class ="fancybox" id="card_3_fancybox" href="" data-fancybox data-caption="Test">
+                <img id="card_3_img" class="card-img-top img-fluid img-thumbnail"
+                     src="">
+            </a>
             <div class="card-body">
                 <div id="title_centre" class="card-title text-light text-shadow-primary"><h2 id="card_3_title"></h2>
                 </div>
@@ -150,5 +157,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         AssetLoader_LoadALL_Homepage();
+        $(".fancybox").fancybox();
+
     });
 </script>
