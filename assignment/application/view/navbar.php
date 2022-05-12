@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#" id="navAbout">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-center " href="#" id="navDeeper">Deeper Understanding</a>
+                <a class="nav-link " href="#" id="navDeeper">Deeper Understanding</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDrop" data-toggle="dropdown">

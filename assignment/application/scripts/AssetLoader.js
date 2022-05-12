@@ -18,9 +18,13 @@ function AssetLoader_LoadALL_About() {
     AssetLoader_TextInfo("about_model", "About_Models");
     AssetLoader_TextInfo("transparency_reason", "Transparency_Reason");
 }
+function AssetLoader_LoadALL_Deeper() {
+    AssetLoader_imgToBackground("fixed-background-deeper", "DeeperBackground");
+    AssetLoader_TextInfo("deeper", "Deeper_Understanding");
+    AssetLoader_List("deeper-ol", "Deeper_Understanding");
+}
 function AssetLoader_img(id, assetName) {
     console.log('Selected Asset:', assetName);
-    //GETTING MESH
     var urlAsset = "application/model/getAsset.php?assetName=" + assetName;
     console.log('URL to PHP Asset is:', urlAsset);
     $.getJSON(urlAsset)
@@ -47,7 +51,6 @@ function AssetLoader_img(id, assetName) {
 }
 function AssetLoader_imgToBackground(id, assetName) {
     console.log('Selected Asset:', assetName);
-    //GETTING MESH
     var urlAsset = "application/model/getAsset.php?assetName=" + assetName;
     console.log('URL to PHP Asset is:', urlAsset);
     $.getJSON(urlAsset)
@@ -74,7 +77,6 @@ function AssetLoader_imgToBackground(id, assetName) {
 }
 function AssetLoader_TextInfo(id, textName) {
     console.log('Selected Asset:', textName);
-    //GETTING MESH
     var urlAsset = "application/model/getTextInfo.php?assetName=" + textName;
     console.log('URL to PHP TextInfo is:', urlAsset);
     $.getJSON(urlAsset)
@@ -103,6 +105,33 @@ function AssetLoader_TextInfo(id, textName) {
                 console.warn("Can't find element: " + id + "_url");
             }
             // AddInnerHtml(id+"_URL",json.Content);
+        }
+        else {
+            console.error("Json is null");
+        }
+    })
+        .fail(function (d, textStatus, error) {
+        console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
+    });
+}
+function AssetLoader_List(id, listName) {
+    console.log('Selected Asset:', listName);
+    //GETTING MESH
+    var urlAsset = "application/model/getTextInfo.php?assetName=" + listName;
+    console.log('URL to PHP Asset is:', urlAsset);
+    $.getJSON(urlAsset)
+        .done(function (json) {
+        // @ts-ignore
+        var listElement = document.getElementById(id);
+        // AddInnerHtml(id + "_content", json.Content);
+        var innerString = '';
+        var temp = json.Content;
+        var content = temp.split("/");
+        content.forEach(function (value) {
+            innerString += "<li>" + value + "</li>";
+        });
+        AddInnerHtml(id, innerString);
+        if (json != null) {
         }
         else {
             console.error("Json is null");

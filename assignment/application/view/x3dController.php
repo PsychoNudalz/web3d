@@ -12,10 +12,10 @@
                 <h3 class="card-subtitle text-red">Model Controls</h3>
                 <p class="card-text">Change fields to change model</p>
                 <div class="btn-group row">
-                    <form class="form-group col-lg-6 pt-0 pb-0" >
+                    <form class="form-group col-6 pt-0 pb-0 mx-auto" >
                         <h4 class="text-red">MESH:</h4>
                         <!--    <select id="selectMesh" onclick="LoadMesh_JQ();">-->
-                        <select id="selectMesh" class="form-text">
+                        <select id="selectMesh" class="form-text mx-auto">
                             <option value="Can" selected>Can</option>
                             <option value="Bottle">Bottle</option>
                             <option value="Glass">Glass</option>
@@ -23,9 +23,9 @@
 
                         </select>
                     </form>
-                    <form class="form-group col-lg-6 pt-0 pb-0" >
+                    <form class="form-group col-6 pt-0 pb-0 mx-auto" >
                         <h4 class="text-red">BRAND:</h4>
-                        <select id="selectTexture" class="form-text" >
+                        <select id="selectTexture" class="form-text mx-auto" >
                             <option value="Coke" selected>Coke</option>
                             <option value="Sprite">Sprite</option>
                             <option value="Fanta">Fanta</option>

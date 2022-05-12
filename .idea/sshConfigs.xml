@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="unix.sussex.ac.uk" id="8596af54-ecd2-4c3e-b8df-dcf493ee6aac" port="22" nameFormat="DESCRIPTIVE" username="yhaw20\" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="unix.sussex.ac.uk" id="8596af54-ecd2-4c3e-b8df-dcf493ee6aac" port="22" nameFormat="DESCRIPTIVE" username="yhaw20" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>

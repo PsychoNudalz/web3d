@@ -11260,14 +11260,14 @@ b {
 }
 
 .nav-link {
-  font-size: 1.2em !important;
+  font-size: 1em !important;
   color: #f8f9fa;
 }
 
 .nav-link:hover {
-  text-shadow: 0px 0px 15px #c2c2c2;
+  text-shadow: 0px 0px 10px #c2c2c2;
   color: #f8f9fa;
-  font-size: 1.2em !important;
+  font-size: 1em !important;
   font-weight: bold;
 }
 
@@ -11305,7 +11305,7 @@ hr {
 }
 
 .navbar-toggler {
-  background-color: #111111 !important;
+  background-color: #d80214 !important;
 }
 
 .navbar-toggler-icon {
@@ -11455,7 +11455,7 @@ figure {
 
 .camera-font:hover {
   font-weight: 700;
-  color: rgb(3, 3, 3);
+  color: #030303;
 }
 
 .btn-responsive {
@@ -11487,6 +11487,7 @@ figure {
 
 .x3dScreen {
   width: 100%;
+  height: 80%;
   border: 1px solid #d80214;
   box-shadow: 0px 0px 5px #d80214;
 }
@@ -11508,6 +11509,22 @@ figure {
 
 .model-btns h4 {
   font-size: 1rem;
+}
+
+.model-description {
+  background-color: #c2c2c2;
+  border: 1px solid #d80214;
+  box-shadow: 0px 0px 5px #d80214;
+  width: 100%;
+}
+
+#selectMesh select {
+  width: 100%;
+}
+
+.card {
+  border-color: #d80214;
+  box-shadow: 0px 0px 5px #d80214;
 }
 
 @media (min-width: 0px) {
@@ -11651,6 +11668,18 @@ figure {
 
   .x3dScreen {
     height: 800px;
+  }
+
+  .nav-link {
+    font-size: 1.2em !important;
+    color: #f8f9fa;
+  }
+
+  .nav-link:hover {
+    text-shadow: 0px 0px 10px #c2c2c2;
+    color: #f8f9fa;
+    font-size: 1.2em !important;
+    font-weight: bold;
   }
 }
 /*--- Bootstrap Padding Fix --*/

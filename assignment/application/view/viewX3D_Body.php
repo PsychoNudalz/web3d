@@ -51,7 +51,9 @@
         </div>
     </div>
 
-    <div id="x3dController" class=" col-md-12  col-lg-3"></div>
+    <div id="x3dController" class=" col-md-12  col-lg-3">
+        
+    </div>
 </div>
 
 
@@ -59,13 +61,18 @@
 <script src="application/scripts/x3dCameraController.js"></script>
 
 
-<div class="row card_model">
-    <div id="card_model" class="card">
+<div class="mx-auto row card_model container-fluid col-lg-12">
+    <div id="card_model" class="model-description card col-lg-12">
         <div class="card-body p-3 rounded">
-            <div id="title_centre" class="card-title drinksText"><h2 id="card_model_title"></h2>
-                <h2></h2></div>
-            <div id="subTitle_centre" class="card-subtitle drinksText"><h3 id="card_model_subtitle"></h3></div>
-            <div id="description_centre" class="card-text drinksText"><p id="card_model_content"></p></div>
+            <div id="title_centre" class="card-title drinksText">
+                <h2 id="card_model_title" class="text-red"></h2>
+            </div>
+            <div id="subTitle_centre" class="card-subtitle drinksText">
+                <h3 id="card_model_subtitle" class="text-red"></h3>
+            </div>
+            <div id="description_centre" class="card-text drinksText">
+                <p id="card_model_content"></p>
+            </div>
             <a id="card_model_url" target="_blank"
                class="btn btn-primary btn-responsive" href="">Find out more ...</a>
         </div>

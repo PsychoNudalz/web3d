@@ -93,6 +93,7 @@
         LoadPhp_Homepage();
         LoadPhp_Model();
         LoadPhp_About();
+        LoadPhp_Deeper();
     });
 </script>
 <!--<script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
