@@ -299,6 +299,8 @@ function LoadTexture_JQ() {
         });
     });
 }
+function LoadAllTextures() {
+}
 function TestPrint() {
     console.log("THIS WORKS");
 }
