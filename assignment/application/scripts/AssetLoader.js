@@ -1,3 +1,11 @@
+/**
+ * Used for loading assets
+ *
+ */
+/**
+ * loads all asset for Homepage
+ *
+ */
 function AssetLoader_LoadALL_Homepage() {
     AssetLoader_img("carousel_img_3", "PinkCoke");
     AssetLoader_img("carousel_img_1", "CokeTruck");
@@ -14,6 +22,10 @@ function AssetLoader_LoadALL_Homepage() {
     AssetLoader_TextInfo("card_2", "Sprite_About");
     AssetLoader_TextInfo("card_3", "Fanta_About");
 }
+/**
+ * loads all asset for About page
+ *
+ */
 function AssetLoader_LoadALL_About() {
     AssetLoader_imgToBackground("fixed-background-about", "AboutBackground");
     AssetLoader_TextInfo("about_1", "About_1");
@@ -26,11 +38,21 @@ function AssetLoader_LoadALL_About() {
     AssetLoader_TextInfo("reference", "References");
     AssetLoader_List("reference-ol", "References");
 }
+/**
+ * loads all asset for Deeper Understanding page
+ *
+ */
 function AssetLoader_LoadALL_Deeper() {
     AssetLoader_imgToBackground("fixed-background-deeper", "DeeperBackground");
     AssetLoader_TextInfo("deeper", "Deeper_Understanding");
     AssetLoader_List("deeper-ol", "Deeper_Understanding");
 }
+/**
+ * Loads images from the AssetTable database
+ * @param id id of the element for the image to be loaded
+ * @param assetName name of the asset in the database
+ * @constructor
+ */
 function AssetLoader_img(id, assetName) {
     console.log('Selected Asset:', assetName);
     var urlAsset = "application/model/getAsset.php?assetName=" + assetName;
@@ -58,6 +80,12 @@ function AssetLoader_img(id, assetName) {
         console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
     });
 }
+/**
+ * Loads images from the AssetTable database to the background-image
+ * @param id id of the element for the image to be loaded
+ * @param assetName name of the asset in the database
+ * @constructor
+ */
 function AssetLoader_imgToBackground(id, assetName) {
     console.log('Selected Asset:', assetName);
     var urlAsset = "application/model/getAsset.php?assetName=" + assetName;
@@ -84,6 +112,18 @@ function AssetLoader_imgToBackground(id, assetName) {
         console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
     });
 }
+/**
+ * Loads data from the TextInformation database
+ * It loads data based on this mapping
+ * <id>_title <- Title
+ * <id>_subtitle <- Subtitle
+ * <id>_content <- Content
+ * <id>_url <- URL
+ * <id>_image <- Img_Path
+ * @param id id of the element for the image to be loaded
+ * @param textName name of the entry in the database
+ * @constructor
+ */
 function AssetLoader_TextInfo(id, textName) {
     console.log('Selected Asset:', textName);
     var urlAsset = "application/model/getTextInfo.php?assetName=" + textName;

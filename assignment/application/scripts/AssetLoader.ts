@@ -1,3 +1,11 @@
+/**
+ * Used for loading assets
+ * 
+ */
+/**
+ * loads all asset for Homepage
+ * 
+ */
 function AssetLoader_LoadALL_Homepage() {
     AssetLoader_img("carousel_img_3", "PinkCoke");
     AssetLoader_img("carousel_img_1", "CokeTruck");
@@ -21,7 +29,10 @@ function AssetLoader_LoadALL_Homepage() {
 
 
 }
-
+/**
+ * loads all asset for About page
+ *
+ */
 function AssetLoader_LoadALL_About() {
 
     AssetLoader_imgToBackground("fixed-background-about", "AboutBackground");
@@ -37,7 +48,10 @@ function AssetLoader_LoadALL_About() {
     AssetLoader_List("reference-ol", "References");
 
 }
-
+/**
+ * loads all asset for Deeper Understanding page
+ *
+ */
 function AssetLoader_LoadALL_Deeper() {
 
     AssetLoader_imgToBackground("fixed-background-deeper", "DeeperBackground");
@@ -45,7 +59,12 @@ function AssetLoader_LoadALL_Deeper() {
     AssetLoader_List("deeper-ol", "Deeper_Understanding");
 }
 
-
+/**
+ * Loads images from the AssetTable database
+ * @param id id of the element for the image to be loaded
+ * @param assetName name of the asset in the database
+ * @constructor
+ */
 function AssetLoader_img(id: string, assetName: string) {
     console.log('Selected Asset:', assetName);
 
@@ -76,6 +95,12 @@ function AssetLoader_img(id: string, assetName: string) {
         });
 }
 
+/**
+ * Loads images from the AssetTable database to the background-image
+ * @param id id of the element for the image to be loaded
+ * @param assetName name of the asset in the database
+ * @constructor
+ */
 function AssetLoader_imgToBackground(id: string, assetName: string) {
     console.log('Selected Asset:', assetName);
 
@@ -105,6 +130,18 @@ function AssetLoader_imgToBackground(id: string, assetName: string) {
         });
 }
 
+/**
+ * Loads data from the TextInformation database
+ * It loads data based on this mapping
+ * <id>_title <- Title
+ * <id>_subtitle <- Subtitle
+ * <id>_content <- Content
+ * <id>_url <- URL
+ * <id>_image <- Img_Path
+ * @param id id of the element for the image to be loaded
+ * @param textName name of the entry in the database
+ * @constructor
+ */
 function AssetLoader_TextInfo(id: string, textName: string) {
     console.log('Selected Asset:', textName);
 

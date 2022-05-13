@@ -61,7 +61,7 @@
 
 
 <!--Content swapping zone-->
-<div class="container-fluid p-0">
+<div class="p-0">
     <div id="HOMEPAGE">
 
     </div>
@@ -79,36 +79,35 @@
 
 <!--Footer-->
 <footer class="footer bg-dark">
-    <hr>
     <div class="text-light row bg-dark">
-        <div class="col-3 float-left copyright text-center">
-            <p><span class="align-baseline">&copy Web 3D Apps </a></span></p>
+        <div class="col-3 float-left copyright text-center mx-auto">
+            <p class=" mx-auto"><span class="align-baseline">&copy Web 3D Apps </a></span></p>
         </div>
         <div class="col-6 float-md text-light model-list mx-auto text-center">
-            <div>
-                <p class="text-light" style="display: inline-block">Models x3d: </p>
-                <ul id="model_github" class="pr-0" style="display: inline-block">
-                    <li><a id="github-Can_url" target="_blank"><p id="github-Can_title"></p></a></li>
-                    <li><a id="github-Bottle_url" target="_blank"><p id="github-Bottle_title"></p></a></li>
-                    <li><a id="github-Glass_url" target="_blank"><p id="github-Glass_title"></p></a></li>
+            <div class="pb-0 mb-0">
+                <p class="text-light pl-0 pb-0 mb-0" style="display: inline-block">Models x3d: </p>
+                <ul id="model_github" class="pl-0 mb-0" style="display: inline-block">
+                    <li><a id="github-Can_url" target="_blank"><p id="github-Can_title" class="pb-0 mb-0"></p></a></li>
+                    <li><a id="github-Bottle_url" target="_blank"><p id="github-Bottle_title" class="pb-0 mb-0"></p></a></li>
+                    <li><a id="github-Glass_url" target="_blank"><p id="github-Glass_title" class="pb-0 mb-0"></p></a></li>
                 </ul>
             </div>
-            <div>
-
-                <p class="text-light" style="display: inline-block">Models fbx: </p>
-                <ul id="model_github" class="pr-0" style="display: inline-block">
-                    <li><a id="github-Can-fbx_url" target="_blank"><p id="github-Can_title"></p></a></li>
-                    <li><a id="github-Bottle-fbx_url" target="_blank"><p id="github-Bottle_title"></p></a></li>
-                    <li><a id="github-Glass-fbx_url" target="_blank"><p id="github-Glass_title"></p></a></li>
+            <div class="pb-0 mb-0">
+                <p class="text-light pl-0 pb-0 mb-0" style="display: inline-block">Models fbx: </p>
+                <ul id="model_github" class="pl-0 mb-0" style="display: inline-block">
+                    <li><a id="github-Can-fbx_url" target="_blank"><p id="github-Can-fbx_title" class="pb-0 mb-0"></p></a></li>
+                    <li><a id="github-Bottle-fbx_url" target="_blank"><p id="github-Bottle-fbx_title" class="pb-0 mb-0"></p></a></li>
+                    <li><a id="github-Glass-fbx_url" target="_blank"><p id="github-Glass-fbx_title" class="pb-0 mb-0"></p></a></li>
                 </ul>
             </div>
 
         </div>
-        <div class="col-3 float-right social text-center">
-            <a href="#"><i class="fa fa-brands fa-facebook-square fa-2x"></i></a>
-            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-            <!--            <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>-->
-            <a href="#"><i class="fa fa-github fa-2x text-light"></i></a>
+        <div class="col-3 float-right social text-center mx-auto">
+            <a id="facebook-icon_url" href="#" class=" mx-auto" target="_blank"><i class="facebook-icon_url fa fa-brands fa-facebook-square fa-2x"></i></a>
+            <a id="twitter-icon_url" href="#" class=" mx-auto" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+            <a id="insta-icon_url" href="#" class=" mx-auto" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+            <a id="youtube-icon_url" href="#" class=" mx-auto" target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
+            <a id="github-icon_url" href="#" class=" mx-auto" target="_blank"><i class="fa fa-github fa-2x text-light"></i></a>
         </div>
     </div>
 </footer>
@@ -119,7 +118,16 @@
         AssetLoader_TextInfo("github-Bottle", "github-Bottle");
         AssetLoader_TextInfo("github-Glass", "github-Glass");
 
+        AssetLoader_TextInfo("github-Can-fbx", "github-Can-fbx");
+        AssetLoader_TextInfo("github-Bottle-fbx", "github-Bottle-fbx");
+        AssetLoader_TextInfo("github-Glass-fbx", "github-Glass-fbx");
 
+        AssetLoader_TextInfo("facebook-icon", "facebook");
+        AssetLoader_TextInfo("twitter-icon", "twitter");
+        AssetLoader_TextInfo("github-icon", "github");
+        AssetLoader_TextInfo("insta-icon", "insta");
+        AssetLoader_TextInfo("youtube-icon", "youtube");
+        
         LoadPhp_Navbar();
         LoadPhp_Homepage();
         LoadPhp_Model();

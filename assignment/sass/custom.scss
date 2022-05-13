@@ -60,7 +60,17 @@ nav, footer {
 
 .footer a {
   color: $light;
+  &:hover{
+    color: $red;
+  }
 }
+.footer li{
+  display: inline-block;
+}
+.footer ul{
+  display: inline-block;
+}
+
 
 
 .footer-text {
@@ -310,7 +320,6 @@ figure {
 
 
 .fa-github {
-  color: $dark;
   content: "\f09b";
 }
 
@@ -445,6 +454,8 @@ figure {
 .model-list li{
   display: inline-block;
 }
+
+
 
 @media (min-width: 0px) {
   .btn-responsive {

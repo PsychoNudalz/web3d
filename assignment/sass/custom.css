@@ -11200,6 +11200,17 @@ nav, footer {
 .footer a {
   color: #f8f9fa;
 }
+.footer a:hover {
+  color: #d80214;
+}
+
+.footer li {
+  display: inline-block;
+}
+
+.footer ul {
+  display: inline-block;
+}
 
 h1, h2, h3, h4, h5 {
   text-shadow: 0px 0px 20px #d80214;
@@ -11409,7 +11420,6 @@ figure {
 }
 
 .fa-github {
-  color: #000000;
   content: "\f09b";
 }
 

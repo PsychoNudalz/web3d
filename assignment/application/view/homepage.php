@@ -153,11 +153,17 @@
 
 
 </div>
-
+<script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         AssetLoader_LoadALL_Homepage();
-        $(".fancybox").fancybox();
+        try {
+            $(".fancybox").fancybox();
+            
+        }catch (e){
+            console.error("Fancy box not loading")
+        }
 
     });
 </script>
