@@ -19,6 +19,7 @@ function AssetLoader_LoadALL_Homepage() {
     AssetLoader_TextInfo("card_2", "Sprite_About");
     AssetLoader_TextInfo("card_3", "Fanta_About");
 
+
 }
 
 function AssetLoader_LoadALL_About() {

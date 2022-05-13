@@ -442,6 +442,10 @@ figure {
 
 }
 
+.model-list li{
+  display: inline-block;
+}
+
 @media (min-width: 0px) {
   .btn-responsive {
     font-size: 60%;

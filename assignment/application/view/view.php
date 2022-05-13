@@ -15,13 +15,13 @@
 
     <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="node_modules/fancybox/dist/css/jquery.fancybox.css">
 
     <link rel="stylesheet" href="sass/custom.css">
-    
-    
+
 
     <link rel='stylesheet' type='text/css' href='node_modules/x3dom/x3dom.css'>
     <script type='text/javascript' src='node_modules/x3dom/x3dom.js'></script>
@@ -34,8 +34,6 @@
     <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
     <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
     <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
-
-
 
 
     <script src="application/scripts/NavbarLoader.js"></script>
@@ -82,14 +80,34 @@
 <!--Footer-->
 <footer class="footer bg-dark">
     <hr>
-    <div class="container-fluid padding text-light">
-        <div class=" float-left copyright">
+    <div class="text-light row bg-dark">
+        <div class="col-3 float-left copyright text-center">
             <p><span class="align-baseline">&copy Web 3D Apps </a></span></p>
         </div>
-        <div class=" float-right social">
+        <div class="col-6 float-md text-light model-list mx-auto text-center">
+            <div>
+                <p class="text-light" style="display: inline-block">Models x3d: </p>
+                <ul id="model_github" class="pr-0" style="display: inline-block">
+                    <li><a id="github-Can_url" target="_blank"><p id="github-Can_title"></p></a></li>
+                    <li><a id="github-Bottle_url" target="_blank"><p id="github-Bottle_title"></p></a></li>
+                    <li><a id="github-Glass_url" target="_blank"><p id="github-Glass_title"></p></a></li>
+                </ul>
+            </div>
+            <div>
+
+                <p class="text-light" style="display: inline-block">Models fbx: </p>
+                <ul id="model_github" class="pr-0" style="display: inline-block">
+                    <li><a id="github-Can-fbx_url" target="_blank"><p id="github-Can_title"></p></a></li>
+                    <li><a id="github-Bottle-fbx_url" target="_blank"><p id="github-Bottle_title"></p></a></li>
+                    <li><a id="github-Glass-fbx_url" target="_blank"><p id="github-Glass_title"></p></a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-3 float-right social text-center">
             <a href="#"><i class="fa fa-brands fa-facebook-square fa-2x"></i></a>
             <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-<!--            <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>-->
+            <!--            <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>-->
             <a href="#"><i class="fa fa-github fa-2x text-light"></i></a>
         </div>
     </div>
@@ -97,6 +115,11 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
+        AssetLoader_TextInfo("github-Can", "github-Can");
+        AssetLoader_TextInfo("github-Bottle", "github-Bottle");
+        AssetLoader_TextInfo("github-Glass", "github-Glass");
+
+
         LoadPhp_Navbar();
         LoadPhp_Homepage();
         LoadPhp_Model();
