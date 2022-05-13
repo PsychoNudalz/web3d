@@ -1,3 +1,5 @@
+<!--MODEL TO CONTROL THE OPERATIONS OF THE DATABASES-->
+
 <?php
 include 'application/debug/ChromePhp.php';
 
@@ -37,15 +39,6 @@ class Model
     {
         ChromePhp::log("Test Print");
 
-    }
-
-    // This is a simple fix to represent, what would in reality be, a table in the database containing the brand names. 
-    // The database schema would then contain a foreign key for each drink entry linking back to the brand name
-    // This structure allows us to read the list of brand names to populate a menu in a view
-    public function dbGetBrand()
-    {
-        // Return the Brand Names
-        return array("-", "Coke", "Coke Light", "Coke Zero", "Sprite", "Dr Pepper", "Fanta");
     }
 
     public function dbCreateTable_ModelTable()
@@ -261,41 +254,6 @@ class Model
             print new Exception($e->getMessage());
         }
         $this->dbhandle = NULL;
-    }
-
-    public function dbGetData()
-    {
-        try {
-
-//            // Prepare a statement to get all records from the Model_3D table
-//            $sql = 'SELECT * FROM Model_3D';
-//            // Use PDO query() to query the database with the prepared SQL statement
-//            $stmt = $this->dbhandle->query($sql);
-//            // Set up an array to return the results to the view
-//            $result = null;
-//            // Set up a variable to index each row of the array
-//            $i = -0;
-//            // Use PDO fetch() to retrieve the results from the database using a while loop
-//            // Use a while loop to loop through the rows	
-//            while ($data = $stmt->fetch()) {
-//                // Don't worry about this, it's just a simple test to check we can output a value from the database in a while loop
-//                // echo '</br>' . $data['x3dModelTitle'];
-//                // Write the database conetnts to the results array for sending back to the view
-//                $result[$i]['x3dModelTitle'] = $data['x3dModelTitle'];
-//                $result[$i]['x3dCreationMethod'] = $data['x3dCreationMethod'];
-//                $result[$i]['modelTitle'] = $data['modelTitle'];
-//                $result[$i]['modelSubtitle'] = $data['modelSubtitle'];
-//                $result[$i]['modelDescription'] = $data['modelDescription'];
-//                //increment the row index
-//                $i++;
-//            }
-        } catch (PD0EXception $e) {
-            print new Exception($e->getMessage());
-        }
-        // Close the database connection
-        $this->dbhandle = NULL;
-        // Send the response back to the view
-        return;
     }
 
     public function UnpackX3DToJSON($filPath)

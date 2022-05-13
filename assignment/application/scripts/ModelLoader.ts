@@ -1,13 +1,7 @@
-// class X3DModel {
-//     material;
-//     texCoordIndex;
-//
-//     constructor(material: X3DMaterial, texCoordIndex: string | null, public coordIndex: string | null, public coordinate: string | null, public textureCoordinate: string | null) {
-//         this.material = material;
-//         this.texCoordIndex = texCoordIndex;
-//         console.log(this);
-//     }
-// }
+/**
+ * used for loading x3d models, mesh and texture separately in different ways
+ */
+
 class X3DModel {
     texCoordIndex;
 
@@ -47,60 +41,21 @@ function ReadX3D(url: string) {
     return xhttp.responseXML;
 }
 
-// //
-// function LoadModelByX3D(url:string) {
-//     // var projectContainer: HTMLElement | null = document.getElementById("MainModel");
-//     var returnXML: Document = ReadX3D(url)
-//     console.log("Read clear: "+returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("DEF"));
-//     var material: X3DMaterial = new X3DMaterial(returnXML.getElementsByTagName("Appearance")[0].getAttribute("DEF"), returnXML.getElementsByTagName("Material")[0].getAttribute("diffuseColor"), returnXML.getElementsByTagName("Material")[0].getAttribute("shininess"), returnXML.getElementsByTagName("Material")[0].getAttribute("specularColor"), returnXML.getElementsByTagName("ImageTexture")[0].getAttribute("url"));
-//
-//
-//     // if (projectContainer != null) {
-//         // projectContainer.innerHTML = modelHTML(new X3DModel(material, returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point")));
-//     // }
-//
-// }//
+
 function LoadMeshByX3D(url: string) {
     // var projectContainer: HTMLElement | null = document.getElementById("MainModel");
     console.log("reading x3d from: " + url);
     var returnXML: Document = ReadX3D(url);
     if (returnXML != null) {
-
         console.log("Read clear: " + returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("DEF"));
         console.log(returnXML);
         // var material: X3DMaterial = new X3DMaterial(returnXML.getElementsByTagName("Appearance")[0].getAttribute("DEF"), returnXML.getElementsByTagName("Material")[0].getAttribute("diffuseColor"), returnXML.getElementsByTagName("Material")[0].getAttribute("shininess"), returnXML.getElementsByTagName("Material")[0].getAttribute("specularColor"), returnXML.getElementsByTagName("ImageTexture")[0].getAttribute("url"));
         return new X3DModel(returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point"));
-
     } else {
         return null;
     }
-
-    // if (projectContainer != null) {
-    // projectContainer.innerHTML = modelHTML(new X3DModel(material, returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("texCoordIndex"), returnXML.getElementsByTagName("IndexedFaceSet")[0].getAttribute("coordIndex"), returnXML.getElementsByTagName("Coordinate")[0].getAttribute("point"), returnXML.getElementsByTagName("TextureCoordinate")[0].getAttribute("point")));
-    // }
-
 }
 
-//
-// function modelHTML(x3DModel: X3DModel) {
-//     const returnString =
-//         "<shape>\n" +
-//         "                <appearance DEF='" + x3DModel.material.name + "'>\n" +
-//         "                    <material diffuseColor='" + x3DModel.material.diffuseColor + "' shininess='" + x3DModel.material.shininess + "' specularColor='" + x3DModel.material.specularColor + "'></material>\n" +
-//         "                    <imageTexture url='" + x3DModel.material.textureURL + "'></imageTexture>\n" +
-//         "                </appearance>\n" +
-//         "                <indexedFaceSet DEF='FACESET_" + x3DModel.material.name + "' ccw='false' creaseAngle='1.0472' solid='false' texCoordIndex='" + x3DModel.texCoordIndex + "'coordIndex='" + x3DModel.coordIndex + "'>\n" +
-//         "                       <coordinate point='" + x3DModel.coordinate + "'></coordinate>\n" +
-//         "                       <textureCoordinate point='" + x3DModel.textureCoordinate + "'></textureCoordinate>\n" +
-//         "               </indexedFaceSet>\n" +
-//         "</shape>";
-//     return returnString;
-// }
-
-function modelHTML(x3DModel: X3DModel) {
-
-
-}
 
 function UpdateTexture(x3DMaterial: X3DMaterial) {
     // @ts-ignore
@@ -115,6 +70,11 @@ function UpdateTexture(x3DMaterial: X3DMaterial) {
     document.getElementById("X3D_imageTexture").url = x3DMaterial.textureURL;
 }
 
+/**
+ * loads the material/ texture
+ * @param x3DMaterial material
+ * @param meshName name of the mesh
+ */
 function UpdateTextureInline(x3DMaterial: X3DMaterial,meshName:string) {
 
     if (meshName == null) {
@@ -149,6 +109,10 @@ function UpdateTextureInline(x3DMaterial: X3DMaterial,meshName:string) {
 
 }
 
+/**
+ * DEPRECIATED
+ * @param x3dMesh
+ */
 function UpdateMesh(x3dMesh: X3DModel) {
 
     try {
@@ -183,6 +147,10 @@ function UpdateMesh(x3dMesh: X3DModel) {
 
 }
 
+/**
+ * set visibility of the mesh
+ * @param b boolean to set the visibility
+ */
 function SetAllMeshVisible(b: Boolean) {
     // @ts-ignore
     document.getElementById("X3D_inline_model_Can").setAttribute("visible", b);
@@ -195,6 +163,11 @@ function SetAllMeshVisible(b: Boolean) {
 }
 
 
+/**
+ * set visibility of the selected mesh
+ * @param meshName name of the mesh
+ * @param b boolean to set the visibility
+ */
 function SetActiveMeshVisible(meshName :string|null,b:boolean){
     console.log("updating inline mesh");
     if (meshName == null) {
@@ -214,6 +187,10 @@ function SetActiveMeshVisible(meshName :string|null,b:boolean){
 
 }
 
+/**
+ * switch between meshes using x3d's switch
+ * @param meshName name of the mesh
+ */
 function SwitchActiveMesh(meshName :string|null){
     var switchNum = 0;
     if (meshName=="Can"){
@@ -229,6 +206,9 @@ function SwitchActiveMesh(meshName :string|null){
     }
 }
 
+/**
+ * Loads up all meshes
+ */
 function LoadAllMesh() {
     LoadMesh("Can");
     LoadMesh("Bottle");
@@ -258,6 +238,10 @@ function UpdateMeshInline(url: string, meshName: string) {
     }
 }
 
+/**
+ * Loads a select mesh based on the matching name from the selection to the Model_Mesh table
+ * @param selection name of the mesh to be loaded
+ */
 function LoadMesh(selection: any) {
     // SetAllMeshVisible(false);
     console.log('Selected Mesh model:', selection);
@@ -317,7 +301,10 @@ function LoadMesh_HTML() {
 }
 
 
-
+/**
+ * Loads a select texture based on the matching name from the selection to the Model_Texture table
+ * @param selection name of the texture to be loaded
+ */
 function LoadTexture(selection: any) {
     console.log('Selected Texture:', selection);
 
@@ -370,10 +357,6 @@ function LoadTexture_JQ() {
             LoadTexture(selection);
         });
     });
-}
-
-function LoadAllTextures() {
-
 }
 
 

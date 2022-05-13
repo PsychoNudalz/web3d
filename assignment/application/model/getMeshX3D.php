@@ -1,3 +1,5 @@
+<!--MODEL FOR LOADING IN MESHES TO X3D INLINE FROM THE MODEL_MESH TABLE-->
+
 <?php
 include '../debug/ChromePhp.php';
 ChromePhp::log('getMesh.php: Activate');
@@ -56,26 +58,7 @@ class getMeshX3D
         }
     }
 
-    function UnpackX3DToJSON($filPath)
-    {
-        $xml = simplexml_load_file("../../".$filPath);
-//        ChromePhp::log($xml->IndexedFaceSet['texCoordIndex']);
 
-        if ($xml == null) {
-            return "failed to load X3D from Path";
-        }
-        $result = null;
-        if ($xml->X3D == null) {
-            return "XML null";
-
-        }
-        $result["texCoordIndex"] = $xml->Scene->Transform->Shape->IndexedFaceSet['texCoordIndex'];
-        $result["coordIndex"] = $xml->Scene->Transform->Shape->IndexedFaceSet['coordIndex'];
-        $result["coordinate"] = $xml->Scene->Transform->Shape->IndexedFaceSet->Coordinate['point'];
-        $result["textureCoordinate"] = $xml->Scene->Transform->Shape->IndexedFaceSet->TextureCoordinate['point'];
-        return $result;
-
-    }
 
     public function dbGetData_Mesh($meshName)
     {

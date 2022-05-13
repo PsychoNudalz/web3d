@@ -1,3 +1,5 @@
+<!--MAIN VIEW PAGE-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,27 +37,17 @@
     <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
     <script type="text/javascript" src="node_modules/fancybox/dist/js/jquery.fancybox.pack.js"></script>
 
-
-    <script src="application/scripts/NavbarLoader.js"></script>
     <script src="application/scripts/ModelLoader.js"></script>
 
     <script src="application/scripts/ContentSwapper.js"></script>
     <script src="application/scripts/PageLoader.js"></script>
     <script src="application/scripts/AssetLoader.js"></script>
 
-
     <script src="application/scripts/ModelLoader.js"></script>
-    <!--        <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>-->
-
 
 </head>
 <body class="bg-light">
 
-
-<!--<div id="navbarPHP">-->
-<!--    -->
-<!---->
-<!--</div>-->
 <nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="navbarPHP">
 </nav>
 
@@ -114,20 +106,24 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
+        // loads x3d model info
         AssetLoader_TextInfo("github-Can", "github-Can");
         AssetLoader_TextInfo("github-Bottle", "github-Bottle");
         AssetLoader_TextInfo("github-Glass", "github-Glass");
 
+        // loads fbx model info
         AssetLoader_TextInfo("github-Can-fbx", "github-Can-fbx");
         AssetLoader_TextInfo("github-Bottle-fbx", "github-Bottle-fbx");
         AssetLoader_TextInfo("github-Glass-fbx", "github-Glass-fbx");
 
+        //loads icon and their hyperlink
         AssetLoader_TextInfo("facebook-icon", "facebook");
         AssetLoader_TextInfo("twitter-icon", "twitter");
         AssetLoader_TextInfo("github-icon", "github");
         AssetLoader_TextInfo("insta-icon", "insta");
         AssetLoader_TextInfo("youtube-icon", "youtube");
         
+        //Loads in the php for each content swap pages
         LoadPhp_Navbar();
         LoadPhp_Homepage();
         LoadPhp_Model();

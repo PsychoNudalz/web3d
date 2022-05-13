@@ -1,3 +1,5 @@
+<!--HOME PAGE-->
+
 <div id="slides" class="carousel slide rounded" data-ride="carousel">
     <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>

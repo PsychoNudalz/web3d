@@ -1,3 +1,7 @@
+/**
+ * script for controlling the x3d controls for the light
+ */
+
 let x3dPointLight = document.getElementById("x3d_MainPointLight_POINTLIGHT");
 let x3dPointLight_Transform = document.getElementById("x3d_MainPointLight_TRANSFORM");
 

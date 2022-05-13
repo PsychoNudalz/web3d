@@ -1,3 +1,6 @@
+/**
+ * Swap the contents for the pages
+ */
 $(document).ready(function () {
     selectPage();
 });

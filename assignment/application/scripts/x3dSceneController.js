@@ -1,3 +1,6 @@
+/**
+ * script for controlling the x3d controls for the scene, mainly wireframe modes and transparency
+ */
 var x3dScene = document.getElementById("x3dScreen_x3d");
 var transparency = true;
 var transparencyValue = 0.2;

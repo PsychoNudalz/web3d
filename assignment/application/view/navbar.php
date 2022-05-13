@@ -1,4 +1,5 @@
-<!--<nav class="navbar navbar-expand-md navbar-orange bg-dark sticky-top " id="LoadNavbar">-->
+<!--NAVBAR-->
+
 <div class="container-fluid">
     <div class="nav-logo">
         <a class="nav-logo text-light" href="#">

@@ -1,3 +1,6 @@
+/**
+ * loads php files for the respective pages to the content swap area
+ */
 function LoadPhp_Homepage() {
     var url = "index.php?apiLoadPage_Homepage";
     $("#HOMEPAGE").load(url);

@@ -1,3 +1,5 @@
+<!--MODEL FOR LOADING IN TEXTURES FROM THE MODEL_TEXTURE TABLE-->
+
 <?php
 include '../debug/ChromePhp.php';
 ChromePhp::log('getTexture.php: Activate');

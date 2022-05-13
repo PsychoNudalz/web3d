@@ -1,4 +1,5 @@
-<!--- Fixed background -->
+<!--ABOUT PAGE-->
+
 <figure>
     <div class="fixed-wrap rounded">
         <div id="fixed-background-about" style="">

@@ -1,4 +1,5 @@
-<!--- Fixed background -->
+<!--DEEPER UNDERSTANDING-->
+
 <figure>
     <div class="fixed-wrap rounded">
         <div id="fixed-background-deeper" style="">

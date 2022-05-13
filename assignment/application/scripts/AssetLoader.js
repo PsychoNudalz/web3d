@@ -1,10 +1,8 @@
 /**
  * Used for loading assets
- *
  */
 /**
  * loads all asset for Homepage
- *
  */
 function AssetLoader_LoadALL_Homepage() {
     AssetLoader_img("carousel_img_3", "PinkCoke");
@@ -51,7 +49,6 @@ function AssetLoader_LoadALL_Deeper() {
  * Loads images from the AssetTable database
  * @param id id of the element for the image to be loaded
  * @param assetName name of the asset in the database
- * @constructor
  */
 function AssetLoader_img(id, assetName) {
     console.log('Selected Asset:', assetName);
@@ -84,7 +81,6 @@ function AssetLoader_img(id, assetName) {
  * Loads images from the AssetTable database to the background-image
  * @param id id of the element for the image to be loaded
  * @param assetName name of the asset in the database
- * @constructor
  */
 function AssetLoader_imgToBackground(id, assetName) {
     console.log('Selected Asset:', assetName);
@@ -120,9 +116,8 @@ function AssetLoader_imgToBackground(id, assetName) {
  * <id>_content <- Content
  * <id>_url <- URL
  * <id>_image <- Img_Path
- * @param id id of the element for the image to be loaded
+ * @param id id of the element for the data to be loaded
  * @param textName name of the entry in the database
- * @constructor
  */
 function AssetLoader_TextInfo(id, textName) {
     console.log('Selected Asset:', textName);
@@ -163,6 +158,13 @@ function AssetLoader_TextInfo(id, textName) {
         console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
     });
 }
+/**
+ * Loads data from the TextInformation database and loads that in to a list
+ * splits each new line in to a new list element.
+ * it will try and detect for a https:// and turn it in to a button with a link
+ * @param id id of the element for the data to be loaded
+ * @param listName name of the entry in the database
+ */
 function AssetLoader_List(id, listName) {
     console.log('Selected Asset:', listName);
     //GETTING MESH
@@ -199,6 +201,11 @@ function AssetLoader_List(id, listName) {
         console.warn(" getAsset getJSON failed, status: " + textStatus + ", error: " + error);
     });
 }
+/**
+ * Inset text in to the element with the id
+ * @param id id is the element to add in text
+ * @param text text to be added in to the element's innerHTML
+ */
 function AddInnerHtml(id, text) {
     var tempElement = document.getElementById(id);
     if (tempElement != null) {

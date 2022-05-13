@@ -1,3 +1,4 @@
+<!--MODEL VIEWING TESTING PAGE-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/popper.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="application/scripts/NavbarLoader.js"></script>
     <script src="application/scripts/ModelLoader.js"></script>
 
     <script src="application/scripts/x3dSceneController.js"></script>

@@ -1,3 +1,5 @@
+<!--LOAD UP CONTROLLER TO VIEW THE X3D-->
+    
 <script src="application/scripts/quaternion/quaternion.js"></script>
 <script src="application/scripts/x3dCameraController.js"></script>
 <script src="application/scripts/x3dSceneController.js"></script>
@@ -169,14 +171,10 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                // console.log("Idont gking now")
                 InitialiseViewpoints();
                 LoadAllMesh();
                 SetAllMeshVisible(false);
                 AssetLoader_TextInfo("card_model", "Coke_About");
-
-                // SetActiveMeshVisible("Can", true);
-
 
                 $("#selectMesh").change(function () {
                     var selection = $(this).val();

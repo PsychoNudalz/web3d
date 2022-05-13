@@ -1,3 +1,5 @@
+<!--MODEL FOR LOADING IN MESHES FROM THE MODEL_MESH TABLE-->
+
 <?php
 include '../debug/ChromePhp.php';
 ChromePhp::log('getMesh.php: Activate');

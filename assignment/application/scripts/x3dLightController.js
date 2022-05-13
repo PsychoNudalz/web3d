@@ -1,3 +1,6 @@
+/**
+ * script for controlling the x3d controls for the light
+ */
 var x3dPointLight = document.getElementById("x3d_MainPointLight_POINTLIGHT");
 var x3dPointLight_Transform = document.getElementById("x3d_MainPointLight_TRANSFORM");
 function Initialisex3dPointLight() {

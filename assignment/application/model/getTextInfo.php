@@ -1,3 +1,6 @@
+<!--MODEL FOR LOADING IN DATA FROM THE TEXTINFORMATION TABLE-->
+
+
 <?php
 include '../debug/ChromePhp.php';
 ChromePhp::log('getTextInfo.php: Activate 2');

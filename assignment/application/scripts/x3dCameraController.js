@@ -1,6 +1,6 @@
-// @ts-ignore
-// import Quaternion from './quaternion/quaternion';
-// import _ = require('quaternion');
+/**
+ * script for controlling the x3d controls for the camera
+ */
 var CameraTransform = /** @class */ (function () {
     function CameraTransform(position, rotation) {
         this.position = position;
@@ -44,14 +44,7 @@ function CameraTransformToViewpoint(idName, cameraTransform) {
     return "<viewpoint id='" + idName + "' DEF='View_Camera' description='Camera' orientation='" + cameraTransform.rotation + "' position='" + cameraTransform.position + "' fieldOfView='0.8' nearclippingplane=\"-1\" farclippingplane=\"-1\"\n" +
         "                               centerofrotation=\"0 0 0\" znear=\"-1\" zfar=\"-1\"></viewpoint>\n";
 }
-function MoveCamera_Preset(preset) {
-    if (preset == "Front") {
-    }
-}
-function MoveCamera(transform) {
-}
 function SetViewPoint(preset) {
-    // ResetViewPoint();
     // @ts-ignore
     document.getElementById('x3d_Camera_VP_' + preset).setAttribute('set_bind', 'true');
     previousViewpoint = preset;
