@@ -1,6 +1,6 @@
-<!--MODEL FOR LOADING IN ASSETS FROM THE ASSETTABLE TABLE-->
 
 <?php
+//<!--MODEL FOR LOADING IN ASSETS FROM THE ASSETTABLE TABLE-->
 include '../debug/ChromePhp.php';
 ChromePhp::log('getAsset.php: Activate 2');
 //ChromePhp::log($_SERVER);

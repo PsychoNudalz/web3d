@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Coca Cola Thingy</title>
+    <title>Coca Cola VM</title>
 
 
     <meta charset="utf-8">

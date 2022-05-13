@@ -1,6 +1,6 @@
-<!--MODEL FOR LOADING IN MESHES TO X3D INLINE FROM THE MODEL_MESH TABLE-->
 
 <?php
+//<!--MODEL FOR LOADING IN MESHES TO X3D INLINE FROM THE MODEL_MESH TABLE-->
 include '../debug/ChromePhp.php';
 ChromePhp::log('getMesh.php: Activate');
 ChromePhp::log($_SERVER);

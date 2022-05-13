@@ -1,7 +1,8 @@
-<!--MODEL FOR LOADING IN TEXTURES FROM THE MODEL_TEXTURE TABLE-->
 
 <?php
-include '../debug/ChromePhp.php';
+//<!--MODEL FOR LOADING IN TEXTURES FROM THE MODEL_TEXTURE TABLE-->
+include '../debu<!--MODEL FOR LOADING IN MESHES FROM THE MODEL_MESH TABLE-->
+g/ChromePhp.php';
 ChromePhp::log('getTexture.php: Activate');
 ChromePhp::log($_SERVER);
 

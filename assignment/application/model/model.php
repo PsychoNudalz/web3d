@@ -1,6 +1,6 @@
-<!--MODEL TO CONTROL THE OPERATIONS OF THE DATABASES-->
 
 <?php
+//<!--MODEL TO CONTROL THE OPERATIONS OF THE DATABASES-->
 include 'application/debug/ChromePhp.php';
 
 ChromePhp::log('Model.php: Hellow World');
