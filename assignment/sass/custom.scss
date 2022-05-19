@@ -417,6 +417,16 @@ figure {
   box-shadow: 0px 0px 5px $red;
 
 }
+.x3dScreen_Scene{
+  background-image: url('assets/Model/Scenory/Scenory.jpg');
+  position: absolute;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+}
 
 .x3d-btns{
   background-color: $secondary;

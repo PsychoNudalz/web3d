@@ -4,11 +4,11 @@
     <div class="col-md-12 col-lg-9 p-md-3 p-lg-3 mx-auto">
         <h2 class="text-red text-center">Model Viewer</h2>
         <br>
-        <div class="x3dScreen mx-md-auto">
+        <div id="x3dScreen_div" class="x3dScreen mx-md-auto">
 
 
             <x3d id='x3dScreen_x3d' showStat='false' showLog='false' showProgress='false ' runtimeEnabled="true">
-                <scene id="scene" DEF='scene'>
+                <scene id="scene" class="x3dScreen_Scene" DEF='scene'>
 
 
                     <!--                <scene render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" pickmode="idBuf" dopickpass="true" id="scene" DEF='scene'>-->
@@ -86,6 +86,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         LoadPhp_x3dController();
+        AssetLoader_imgToBackground("scene", "x3dBackground");
+
     });
 </script>
 
